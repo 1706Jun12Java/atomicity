@@ -1,0 +1,50 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding:0;
+  margin:0;
+  color:white;
+  background-image: url("../img/citybg.jpg");
+  background-size:cover;
+  width:100%;
+  height: 100%;
+}
+
+.centered {
+  text-align: center;
+}
+
+.displayAsBlock {
+  margin:0 auto;
+}
+
+#logoImg {
+  display: block;
+  margin: 0 auto;
+  width: 45%;
+  height: 45%;
+}
+
+.background-image {
+
+}
+
+.main-header-container {
+  margin: 0 auto;
+  padding: 15px 50px;
+  padding-top: 20%;
+  background-image: linear-gradient(180deg, transparent 100%, black),
+                    linear-gradient(0deg, transparent 10%, black 90% );
+}
+
+.content {
+  position: fixed;
+  left: 0;
+  right: 0;
+  /*z-index: 9999;*/
+  margin-left: 20px;
+  margin-right: 20px;
+}
