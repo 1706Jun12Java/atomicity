@@ -2,18 +2,17 @@ package domain;
 
 import javax.persistence.*;
 
-@NamedQueries({
-	@NamedQuery(name="getAllUsers",query="FROM Users"),
-	@NamedQuery(name="getUsersByUsername",query="FROM Users WHERE username = :var")
-})
+@NamedQueries({ @NamedQuery(name = "getAllUsers", query = "FROM Users"),
+		@NamedQuery(name = "getUsersByUsername", query = "FROM Users WHERE username = :var") })
 
 @Entity
 @Table(name = "A_USERS")
 public class Users {
 
-	public Users(String username, String password, String firstName, String lastName, boolean blocked) {
+	public Users(String username, String email, String password, String firstName, String lastName, boolean blocked) {
 		super();
 		this.username = username;
+		this.email = email;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -23,6 +22,8 @@ public class Users {
 	@Id
 	@Column(name = "U_USERNAME")
 	private String username;
+	@Column(name = "U_EMAIL")
+	private String email;
 	@Column(name = "U_PASSWORD")
 	private String password;
 	@Column(name = "U_FIRSTNAME")
@@ -74,6 +75,15 @@ public class Users {
 
 	public Users setPassword(String password) {
 		this.password = password;
+		return this;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public Users setEmail(String email) {
+		this.email = email;
 		return this;
 	}
 
