@@ -1,7 +1,6 @@
 package dao;
 
 import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -15,6 +14,9 @@ public class UsersDAOImpl implements UsersDAO {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Adds a new user to the database
+	 */
 	@Override
 	public void push(Users newUser) throws UserNameTakenException, InvalidNameException {
 		// Check if there are any empty Strings
@@ -44,20 +46,32 @@ public class UsersDAOImpl implements UsersDAO {
 
 	@Override
 	public void updatePassword(Users user, String newVal) {
-		// TODO Auto-generated method stub
-
+		Session sess = HibernateUtil.getSession();
+		Transaction trans = sess.beginTransaction();
+		user.setPassword(newVal);
+		sess.update(user);
+		trans.commit();
+		sess.close();
 	}
 
 	@Override
 	public void updateFirstName(Users user, String newVal) {
-		// TODO Auto-generated method stub
-
+		Session sess = HibernateUtil.getSession();
+		Transaction trans = sess.beginTransaction();
+		user.setFirstName(newVal);
+		sess.update(user);
+		trans.commit();
+		sess.close();
 	}
 
 	@Override
 	public void updateLastName(Users user, String newVal) {
-		// TODO Auto-generated method stub
-
+		Session sess = HibernateUtil.getSession();
+		Transaction trans = sess.beginTransaction();
+		user.setLastName(newVal);
+		sess.update(user);
+		trans.commit();
+		sess.close();
 	}
 
 	/**
