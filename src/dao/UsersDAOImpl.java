@@ -79,8 +79,10 @@ public class UsersDAOImpl implements UsersDAO {
 	 */
 	@Override
 	public Users getUserByName(String username) {
-		// TODO Auto-generated method stub
-		return null;
+		Session sess = HibernateUtil.getSession();
+		Users user = (Users) sess.get(Users.class, username);
+		sess.close();
+		return user;
 	}
 
 	/**
