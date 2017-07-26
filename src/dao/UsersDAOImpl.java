@@ -10,12 +10,15 @@ import domain.Users;
 
 public class UsersDAOImpl implements UsersDAO {
 
-	public UsersDAOImpl() {
-		// TODO Auto-generated constructor stub
-	}
-
 	/**
 	 * Adds a new user to the database
+	 * 
+	 * @param newUser
+	 *            The user to be added
+	 * @throws UserNameTakenException
+	 *             In the case a username is taken
+	 * @throws InvalidNameException
+	 *             If a field is left blank, but front end should prevent that
 	 */
 	@Override
 	public void push(Users newUser) throws UserNameTakenException, InvalidNameException {
@@ -44,6 +47,14 @@ public class UsersDAOImpl implements UsersDAO {
 
 	}
 
+	/**
+	 * Updates the User's password in the database
+	 * 
+	 * @param user
+	 *            The user to change
+	 * @param newVal
+	 *            The new password
+	 */
 	@Override
 	public void updatePassword(Users user, String newVal) {
 		Session sess = HibernateUtil.getSession();
@@ -54,6 +65,14 @@ public class UsersDAOImpl implements UsersDAO {
 		sess.close();
 	}
 
+	/**
+	 * Updates the User's first name in the database
+	 * 
+	 * @param user
+	 *            The user to change
+	 * @param newVal
+	 *            The new first name
+	 */
 	@Override
 	public void updateFirstName(Users user, String newVal) {
 		Session sess = HibernateUtil.getSession();
@@ -64,6 +83,14 @@ public class UsersDAOImpl implements UsersDAO {
 		sess.close();
 	}
 
+	/**
+	 * Updates the User's last name in the database
+	 * 
+	 * @param user
+	 *            The user to change
+	 * @param newVal
+	 *            The new last name
+	 */
 	@Override
 	public void updateLastName(Users user, String newVal) {
 		Session sess = HibernateUtil.getSession();
@@ -76,6 +103,9 @@ public class UsersDAOImpl implements UsersDAO {
 
 	/**
 	 * Returns the user with the given username
+	 * 
+	 * @param username
+	 *            The username to find
 	 */
 	@Override
 	public Users getUserByName(String username) {
