@@ -8,7 +8,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "A_USERS")
 public class Users {
-
+	// Default Constructor
+	public Users() {}
+	
 	public Users(String username, String email, String password, String firstName, String lastName, boolean blocked) {
 		super();
 		this.username = username;
