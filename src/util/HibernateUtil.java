@@ -1,5 +1,8 @@
 package util;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -16,5 +19,19 @@ public class HibernateUtil {
 
 	public static Session getSession() {
 		return sessionFactory("hibernate.cfg.xml").openSession();
+	}
+	/* *********************
+	 *     OTHER TOOLS
+	 * *********************/
+	public static boolean doesUsernameExist(String username) {
+		Session session = HibernateUtil.getSession();
+		String hqlQuery = "from A_USERS where U_USERNAME = :username";
+		Query query = session.createQuery(hqlQuery);
+		query.setString("username", username);
+		ArrayList<String> list = (ArrayList<String>) query.list();
+		if(list.size() == 0) {
+			return false;
+		}
+		return true;
 	}
 }
