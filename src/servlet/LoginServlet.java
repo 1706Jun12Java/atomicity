@@ -1,8 +1,10 @@
 package servlet;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * 
@@ -21,7 +23,14 @@ public class LoginServlet extends HttpServlet {
 	}
 	
 	private void doService(HttpServletRequest req, HttpServletResponse resp) {
-		// code goes here
+		// Check if there is any user already logged in
+		HttpSession session = req.getSession();
+		if(session.getAttribute("password") != null) {
+			// TODO forward to profile page...
+		}
+		else {
+			
+		}
 		
 		
 	}
