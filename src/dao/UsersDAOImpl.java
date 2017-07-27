@@ -39,7 +39,7 @@ public class UsersDAOImpl implements UsersDAO {
 	@Override
 	public void push(Users newUser) throws UserNameTakenException, InvalidNameException {
 		// For debugging purposes:
-		Debug.printMessage(this.getClass(), "push()", "invoked");
+		Debug.printMessage(this.getClass(), "push()", "Invoked");
 		// Check if there are any empty Strings
 		if (newUser.getUsername().isEmpty() || newUser.getPassword().isEmpty() || newUser.getFirstName().isEmpty()
 				|| newUser.getLastName().isEmpty()) {
@@ -48,9 +48,9 @@ public class UsersDAOImpl implements UsersDAO {
 		// Get the session
 		Session sess = HibernateUtil.getSession();
 		// Check to see if the username is taken
-		String users = getUserByName(newUser.getUsername()).getUsername();
+		Users userObj = getUserByName(newUser.getUsername());
 		// If the list is not empty, a user with the name was found
-		if (users != null) {
+		if (userObj != null) {
 			sess.close();
 			throw new UserNameTakenException("The username was found in the database");
 		} else {
@@ -63,6 +63,8 @@ public class UsersDAOImpl implements UsersDAO {
 			trans.commit();
 			sess.close();
 		}
+		
+		Debug.printMessage(this.getClass(), "push()", "Ended");
 
 	}
 
@@ -76,13 +78,14 @@ public class UsersDAOImpl implements UsersDAO {
 	 */
 	@Override
 	public void updatePassword(Users user, String newVal) {
-		Debug.printMessage(this.getClass(), "updatePassword()", "invoked");
+		Debug.printMessage(this.getClass(), "updatePassword()", "Invoked");
 		Session sess = HibernateUtil.getSession();
 		Transaction trans = sess.beginTransaction();
 		user.setPassword(newVal);
 		sess.update(user);
 		trans.commit();
 		sess.close();
+		Debug.printMessage(this.getClass(), "updatePassword()", "Ended");
 	}
 
 	/**
@@ -96,13 +99,14 @@ public class UsersDAOImpl implements UsersDAO {
 	@Override
 	public void updateFirstName(Users user, String newVal) {
 		// For debugging purposes:
-		Debug.printMessage(this.getClass(), "updateFirstName()", "invoked");
+		Debug.printMessage(this.getClass(), "updateFirstName()", "Invoked");
 		Session sess = HibernateUtil.getSession();
 		Transaction trans = sess.beginTransaction();
 		user.setFirstName(newVal);
 		sess.update(user);
 		trans.commit();
 		sess.close();
+		Debug.printMessage(this.getClass(), "updateFirstName()", "Ended");
 	}
 
 	/**
@@ -116,13 +120,14 @@ public class UsersDAOImpl implements UsersDAO {
 	@Override
 	public void updateLastName(Users user, String newVal) {
 		// For debugging purposes:
-		Debug.printMessage(this.getClass(), "updateLastName()", "invoked");
+		Debug.printMessage(this.getClass(), "updateLastName()", "Invoked");
 		Session sess = HibernateUtil.getSession();
 		Transaction trans = sess.beginTransaction();
 		user.setLastName(newVal);
 		sess.update(user);
 		trans.commit();
 		sess.close();
+		Debug.printMessage(this.getClass(), "updateLastName()", "Ended");
 	}
 
 	/**
@@ -138,6 +143,9 @@ public class UsersDAOImpl implements UsersDAO {
 		Session sess = HibernateUtil.getSession();
 		Users user = (Users) sess.get(Users.class, username);
 		sess.close();
+		// For debugging purposes:
+		
+		Debug.printMessage(this.getClass(), "getUserByName()", "Ended returning: " + ((user==null) ? user:user.getUsername()));
 		return user;
 	}
 
