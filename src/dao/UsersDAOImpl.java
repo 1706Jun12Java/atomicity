@@ -1,14 +1,30 @@
 package dao;
 
+import static org.junit.Assert.fail;
+
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.junit.Test;
 import customExceptions.*;
 import util.HibernateUtil;
 import domain.Users;
 
 public class UsersDAOImpl implements UsersDAO {
+
+	@Test
+	public void testPush() {
+		try {
+			push(new Users("username1", "email@gmail.com", "password", "firstName", "lastName", false));
+		} catch (UserNameTakenException e) {
+			e.printStackTrace();
+			fail();
+		} catch (InvalidNameException e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
 
 	/**
 	 * Adds a new user to the database
@@ -30,9 +46,7 @@ public class UsersDAOImpl implements UsersDAO {
 		// Get the session
 		Session sess = HibernateUtil.getSession();
 		// Check to see if the username is taken
-		Query query = sess.getNamedQuery("getUsersByUsername");
-		query.setString("var", newUser.getUsername());
-		List<Users> users = query.list();
+		List<Users> users = getAllUsers();
 		// If the list is not empty, a user with the name was found
 		if (!users.isEmpty()) {
 			sess.close();
