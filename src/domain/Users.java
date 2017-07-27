@@ -2,7 +2,10 @@ package domain;
 
 import javax.persistence.*;
 
-@NamedQueries({ @NamedQuery(name = "getAllUsers", query = "FROM Users") })
+@NamedQueries({ 
+		@NamedQuery(name = "getAllUsers", query = "FROM Users"),
+		@NamedQuery(name = "getUsersByUsername", query = "FROM Users WHERE username = :var") 
+})
 
 @Entity
 @Table(name = "A_USERS")

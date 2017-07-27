@@ -1,40 +1,88 @@
 <!DOCTYPE html>
-<html>
-  <head>
-	<meta charset="ISO-8859-1">
-   	<link rel="shortcut icon" href="favicon1.ico" />
-    <title>Register page</title>
-    <link rel="stylesheet" href="css/normalize.css"/>
-    <link rel="stylesheet" href="css/mystyle.css"/>
-  </head>
-  <body>
-  
-    <div class="registerForm">
-		<form action="register" method="post">
-			<h3><span class="circledNum">1</span>Fill your basic information</h3><br>
-			
-			<p class="label">Firstname</p><br>
-			<input class ="textfield" name="firstname"><br>
-			
-			<p class="label">Lastname</p><br>
-			<input class ="textfield" name="lastname"><br>
-			
-			<p class="label">Email</p><br>
-			<input class ="textfield" name="email"><br>
-			
-			<h3><span class="circledNum">2</span>Create your User credentials</h3><br>
-			
-			<p class="label">Username</p><br>
-			<input class ="textfield" name="username"><br>
-			
-			<p class="label">Password</p><br>
-			<input class ="textfield" type="password" name="password"><br>
-			
-			<p class="label">Confirm Password</p><br>
-			<input class ="textfield" type="password" name="cpassword"><br>
-			
-			<input class ="submitButton" type="submit" value="Create Account">
+<html ng-app="registerApp">
+<head>
+<meta charset="ISO-8859-1">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link rel="shortcut icon" href="favicon1.ico" />
+<link rel="stylesheet" href="css/normalize.css" />
+<link rel="stylesheet" href="css/mystyle.css" />
+<title>Register page</title>
+</head>
+<body>
+
+	<div class="registerForm">
+		<form action="register" method="post" name="registerForm"
+			ng-controller="registerCtrl" novalidate>
+			<h3>
+				<span class="circledNum">1</span>Fill your basic information
+			</h3>
+			<br>
+
+			<p class="label">Firstname</p>
+			<span style="color: lightcoral"
+				ng-show="registerForm.firstname.$dirty && registerForm.firstname.$invalid">
+				<span ng-show="registerForm.$error.required">Field is
+					required.</span>
+			</span> <br> <input class="textfield" type="text" name="firstname"
+				ng-model="firstname" required><br>
+
+			<p class="label">Lastname</p>
+			<span style="color: lightcoral"
+				ng-show="registerForm.lastname.$dirty && registerForm.lastname.$invalid">
+				<span ng-show="registerForm.$error.required">Field is
+					required.</span>
+			</span> <br> <input class="textfield" type="text" name="lastname"
+				ng-model="lastname" required><br>
+
+			<p class="label">Email</p>
+			<span style="color: lightcoral"
+				ng-show="registerForm.email.$dirty && registerForm.email.$invalid">
+				<span ng-show="registerForm.email.$error.required">Email is
+					required.</span> <span ng-show="registerForm.email.$error.email">Invalid
+					email address.</span>
+			</span> <br> <input class="textfield" type="email" name="email"
+				ng-model="email" required><br>
+
+			<h3>
+				<span class="circledNum">2</span>Create your User credentials
+			</h3>
+			<br>
+
+			<p class="label">Username</p>
+			<span style="color: lightcoral"
+				ng-show="registerForm.user.$dirty && registerForm.user.$invalid">
+				<span ng-show="registerForm.$error.required">Username is
+					required.</span>
+			</span> <br> <input class="textfield" type="text" name="user"
+				ng-model="user" required>
+
+			<p class="label">Password</p>
+			<br> <input class="textfield" type="password" name="password"><br>
+
+			<p class="label">Confirm Password</p>
+			<br> <input class="textfield" type="password" name="cpassword"><br>
+
+			<input class="submitButton" type="submit"
+				ng-disabled="registerForm.user.$dirty && registerForm.user.$invalid || 
+				registerForm.firstname.$dirty && registerForm.firstname.$invalid ||
+				registerForm.lastname.$dirty && registerForm.lastname.$invalid ||
+				registerForm.email.$dirty && registerForm.email.$invalid"
+				value="Create Account">
 		</form>
+
 	</div>
-  </body>
+
+	<script type="text/javascript">
+	var registerApp = angular.module('registerApp', []);
+	registerApp.controller('registerCtrl', function($scope) {
+		$scope.user = '[Enter Username]';
+		$scope.firstname = '[Enter First Name]';
+		$scope.lastname = '[Enter Last Name]';
+		$scope.email = '[Enter Email]';
+		$scope.pass1 = '';
+		$scope.pass2 = '';
+	});
+	</script>
+</body>
 </html>
