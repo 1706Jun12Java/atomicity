@@ -16,7 +16,7 @@ public class UsersDAOImpl implements UsersDAO {
 	@Test
 	public void testPush() {
 		try {
-			push(new Users("username1", "email@gmail.com", "password", "firstName", "lastName", false));
+			push(new Users("username2", "email@gmail.com", "password", "firstName", "lastName", false));
 		} catch (UserNameTakenException e) {
 			e.printStackTrace();
 			fail();
