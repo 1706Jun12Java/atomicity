@@ -1,7 +1,6 @@
 package dao;
 
-import static org.junit.Assert.fail;
-
+import static org.junit.Assert.*;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -9,7 +8,6 @@ import org.hibernate.Transaction;
 import org.junit.Test;
 import customExceptions.*;
 import util.Debug;
-
 import util.HibernateUtil;
 import domain.Users;
 
@@ -50,9 +48,9 @@ public class UsersDAOImpl implements UsersDAO {
 		// Get the session
 		Session sess = HibernateUtil.getSession();
 		// Check to see if the username is taken
-		List<Users> users = getAllUsers();
+		String users = getUserByName(newUser.getUsername()).getUsername();
 		// If the list is not empty, a user with the name was found
-		if (!users.isEmpty()) {
+		if (users != null) {
 			sess.close();
 			throw new UserNameTakenException("The username was found in the database");
 		} else {
