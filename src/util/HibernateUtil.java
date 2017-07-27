@@ -1,9 +1,7 @@
 package util;
 
-
 import java.util.ArrayList;
 import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -22,11 +20,9 @@ public class HibernateUtil {
 	public static Session getSession() {
 		return sessionFactory("hibernate.cfg.xml").openSession();
 	}
-	
 	/* *********************
 	 *     OTHER TOOLS
 	 * *********************/
-	
 	public static boolean doesUsernameExist(String username) {
 		Session session = HibernateUtil.getSession();
 		String hqlQuery = "from A_USERS where U_USERNAME = :username";
