@@ -48,6 +48,7 @@ public class RegisterServlet extends HttpServlet {
 		PrintWriter pw = resp.getWriter();
 		resp.setContentType("text/html");
 		pw.write("<h1>helloWorld!");
+
 		try {
 			ApplicationContext appCon = new ClassPathXmlApplicationContext("beans.xml");
 			UsersDAO udao = (UsersDAO) appCon.getBean("usersDAO");
