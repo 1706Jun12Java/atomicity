@@ -9,6 +9,16 @@ import javax.persistence.*;
 @Table(name = "A_USERS")
 public class Users {
 
+	public Users(String username, String email, String password, String firstName, String lastName) {
+		super();
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.blocked = false;
+	}
+
 	public Users() {
 		super();
 	}
