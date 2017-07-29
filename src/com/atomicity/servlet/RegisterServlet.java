@@ -38,14 +38,11 @@ public class RegisterServlet extends HttpServlet {
 		String firstname = req.getParameter("firstname");
 		String lastname = req.getParameter("lastname");
 		String email = req.getParameter("email");
-		String username = req.getParameter("username");
+		String username = req.getParameter("user");
 		String password = req.getParameter("password");
 		String cpassword = req.getParameter("cpassword");
 		
 		Users newUser = new Users(username, email, password, firstname, lastname, false);
-		PrintWriter pw = resp.getWriter();
-		resp.setContentType("text/html");
-		pw.write("<h1>helloWorld!");
 		try {
 			new UsersDAOImpl().push(newUser);
 		} catch (UserNameTakenException | InvalidNameException e) {
