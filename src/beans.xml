@@ -39,5 +39,9 @@
 	<bean id="usersDAO" class="com.atomicity.dao.UsersDAOImpl">
 		<property name="sessionFactory" ref="mySessionFactory"></property>
 	</bean>
+	
+	<bean id="picsDAO" class="com.atomicity.dao.PPDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory"></property>
+	</bean>
 
 </beans>
