@@ -1,4 +1,4 @@
-package customExceptions;
+package com.atomicity.customExceptions;
 
 public class InvalidNameException extends Exception {
 

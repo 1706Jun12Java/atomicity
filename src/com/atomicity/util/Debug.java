@@ -1,4 +1,4 @@
-package util;
+package com.atomicity.util;
 
 /**
  * @author Leibniz Berihuete

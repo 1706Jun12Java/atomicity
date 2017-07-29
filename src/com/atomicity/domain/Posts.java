@@ -1,7 +1,10 @@
-package domain;
+package com.atomicity.domain;
 
 import javax.persistence.*;
 import java.util.Date;
+
+@NamedQueries({ @NamedQuery(name = "getAllPosts", query = "FROM Posts"),
+		@NamedQuery(name = "getPostsByUsername", query = "FROM Posts WHERE username = :var") })
 
 @Entity
 @Table(name = "A_POST")
@@ -20,7 +23,7 @@ public class Posts {
 	private String text;
 
 	@Column(name = "PT_AUTHOR")
-	private String author;
+	private String username;
 
 	@Column(name = "PT_SUBMITTED")
 	private Date dateSubmitted;
@@ -52,12 +55,12 @@ public class Posts {
 		return this;
 	}
 
-	public String getAuthor() {
-		return author;
+	public String getUsername() {
+		return username;
 	}
 
-	public Posts setAuthor(String author) {
-		this.author = author;
+	public Posts setUsername(String username) {
+		this.username = username;
 		return this;
 	}
 

@@ -9,9 +9,9 @@
 		<property name="hibernate.connection.url">jdbc:oracle:thin:@atomicity.ciwxju2fmzjg.us-east-2.rds.amazonaws.com:1521:ORCL</property>
 		<property name="hibernate.connection.username">Master</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
-		<mapping class="domain.Users" />
-		<mapping class="domain.ProfilePics" />
-		<mapping class="domain.Topics" />
-		<mapping class="domain.Posts" />
+		<mapping class="com.atomicity.domain.Users" />
+		<mapping class="com.atomicity.domain.ProfilePics" />
+		<mapping class="com.atomicity.domain.Topics" />
+		<mapping class="com.atomicity.domain.Posts" />
 	</session-factory>
 </hibernate-configuration>

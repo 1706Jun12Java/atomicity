@@ -1,4 +1,4 @@
-package domain;
+package com.atomicity.domain;
 
 import javax.persistence.*;
 
@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "A_USERS")
 public class Users {
-	// Default Constructor
 	public Users() {}
 	
 	public Users(String username, String email, String password, String firstName, String lastName, boolean blocked) {
@@ -87,6 +86,12 @@ public class Users {
 	public Users setEmail(String email) {
 		this.email = email;
 		return this;
+	}
+
+	@Override
+	public String toString() {
+		return "Users [username=" + username + ", email=" + email + ", password=" + password + ", firstName="
+				+ firstName + ", lastName=" + lastName + ", blocked=" + blocked + "]";
 	}
 
 }
