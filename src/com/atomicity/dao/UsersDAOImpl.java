@@ -1,29 +1,23 @@
-package dao;
+package com.atomicity.dao;
 
-import static org.junit.Assert.*;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.junit.Test;
-import customExceptions.*;
-import util.Debug;
-import util.HibernateUtil;
-import domain.Users;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+import com.atomicity.customExceptions.*;
+import com.atomicity.domain.Users;
+import com.atomicity.util.Debug;
 
 public class UsersDAOImpl implements UsersDAO {
 
-	@Test
-	public void testPush() {
-		try {
-			push(new Users("username2", "email@gmail.com", "password", "firstName", "lastName", false));
-		} catch (UserNameTakenException e) {
-			e.printStackTrace();
-			fail();
-		} catch (InvalidNameException e) {
-			e.printStackTrace();
-			fail();
-		}
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	public void setSessionFactory(SessionFactory sessionfactory) {
+		this.sessionFactory = sessionfactory;
 	}
 
 	/**
@@ -37,6 +31,7 @@ public class UsersDAOImpl implements UsersDAO {
 	 *             If a field is left blank, but front end should prevent that
 	 */
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void push(Users newUser) throws UserNameTakenException, InvalidNameException {
 		// For debugging purposes:
 		Debug.printMessage(this.getClass(), "push()", "invoked");
@@ -46,22 +41,19 @@ public class UsersDAOImpl implements UsersDAO {
 			throw new InvalidNameException("There is an empty String");
 		}
 		// Get the session
-		Session sess = HibernateUtil.getSession();
+		Session sess = sessionFactory.getCurrentSession();
 		// Check to see if the username is taken
-		String users = getUserByName(newUser.getUsername()).getUsername();
+		Users users = getUserByName(newUser.getUsername());
 		// If the list is not empty, a user with the name was found
 		if (users != null) {
 			sess.close();
 			throw new UserNameTakenException("The username was found in the database");
 		} else {
 			// Otherwise, add the new user
-			Transaction trans = sess.beginTransaction();
 			// Debug
 			Debug.printMessage(this.getClass(), "push()", "username available.");
 			Debug.printErrorMessage(this.getClass(), "push()", "saving " + newUser.getUsername());
 			sess.save(newUser);
-			trans.commit();
-			sess.close();
 		}
 
 	}
@@ -75,14 +67,12 @@ public class UsersDAOImpl implements UsersDAO {
 	 *            The new password
 	 */
 	@Override
+	@Transactional
 	public void updatePassword(Users user, String newVal) {
 		Debug.printMessage(this.getClass(), "updatePassword()", "invoked");
-		Session sess = HibernateUtil.getSession();
-		Transaction trans = sess.beginTransaction();
+		Session sess = sessionFactory.getCurrentSession();
 		user.setPassword(newVal);
 		sess.update(user);
-		trans.commit();
-		sess.close();
 	}
 
 	/**
@@ -94,15 +84,13 @@ public class UsersDAOImpl implements UsersDAO {
 	 *            The new first name
 	 */
 	@Override
+	@Transactional
 	public void updateFirstName(Users user, String newVal) {
 		// For debugging purposes:
 		Debug.printMessage(this.getClass(), "updateFirstName()", "invoked");
-		Session sess = HibernateUtil.getSession();
-		Transaction trans = sess.beginTransaction();
+		Session sess = sessionFactory.getCurrentSession();
 		user.setFirstName(newVal);
 		sess.update(user);
-		trans.commit();
-		sess.close();
 	}
 
 	/**
@@ -114,15 +102,13 @@ public class UsersDAOImpl implements UsersDAO {
 	 *            The new last name
 	 */
 	@Override
+	@Transactional
 	public void updateLastName(Users user, String newVal) {
 		// For debugging purposes:
 		Debug.printMessage(this.getClass(), "updateLastName()", "invoked");
-		Session sess = HibernateUtil.getSession();
-		Transaction trans = sess.beginTransaction();
+		Session sess = sessionFactory.getCurrentSession();
 		user.setLastName(newVal);
 		sess.update(user);
-		trans.commit();
-		sess.close();
 	}
 
 	/**
@@ -132,12 +118,12 @@ public class UsersDAOImpl implements UsersDAO {
 	 *            The username to find
 	 */
 	@Override
+	@Transactional
 	public Users getUserByName(String username) {
 		// For debugging purposes:
 		Debug.printMessage(this.getClass(), "getUserByName()", "invoked");
-		Session sess = HibernateUtil.getSession();
+		Session sess = sessionFactory.getCurrentSession();
 		Users user = (Users) sess.get(Users.class, username);
-		sess.close();
 		return user;
 	}
 
@@ -145,13 +131,13 @@ public class UsersDAOImpl implements UsersDAO {
 	 * Returns a list of all users from A_USERS
 	 */
 	@Override
+	@Transactional
 	public List<Users> getAllUsers() {
 		// For debugging purposes:
 		Debug.printMessage(this.getClass(), "getAllUsers()", "invoked");
-		Session sess = HibernateUtil.getSession();
+		Session sess = sessionFactory.getCurrentSession();
 		Query query = sess.getNamedQuery("getAllUsers");
 		List<Users> users = query.list();
-		sess.close();
 		return users;
 	}
 

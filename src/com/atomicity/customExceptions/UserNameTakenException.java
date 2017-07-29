@@ -1,4 +1,4 @@
-package customExceptions;
+package com.atomicity.customExceptions;
 
 public class UserNameTakenException extends Exception {
 

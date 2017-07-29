@@ -1,10 +1,10 @@
-package dao;
+package com.atomicity.dao;
 
 import java.util.List;
 
-import customExceptions.InvalidNameException;
-import customExceptions.UserNameTakenException;
-import domain.Users;
+import com.atomicity.customExceptions.InvalidNameException;
+import com.atomicity.customExceptions.UserNameTakenException;
+import com.atomicity.domain.Users;
 
 public interface UsersDAO {
 

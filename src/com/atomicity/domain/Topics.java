@@ -1,4 +1,4 @@
-package domain;
+package com.atomicity.domain;
 
 import java.util.Date;
 import javax.persistence.*;

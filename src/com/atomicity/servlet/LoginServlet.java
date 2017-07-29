@@ -1,4 +1,4 @@
-package servlet;
+package com.atomicity.servlet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;

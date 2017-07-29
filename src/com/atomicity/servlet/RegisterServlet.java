@@ -1,4 +1,4 @@
-package servlet;
+package com.atomicity.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import customExceptions.InvalidNameException;
-import customExceptions.UserNameTakenException;
-import dao.UsersDAOImpl;
-import domain.Users;
-import util.Debug;
-import util.HibernateUtil;
+import com.atomicity.customExceptions.InvalidNameException;
+import com.atomicity.customExceptions.UserNameTakenException;
+import com.atomicity.dao.UsersDAOImpl;
+import com.atomicity.domain.Users;
+import com.atomicity.util.Debug;
+import com.atomicity.util.HibernateUtil;
 
 public class RegisterServlet extends HttpServlet {
 	
