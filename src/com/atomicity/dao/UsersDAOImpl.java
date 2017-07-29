@@ -111,6 +111,16 @@ public class UsersDAOImpl implements UsersDAO {
 		sess.update(user);
 	}
 
+	@Override
+	@Transactional
+	public void setBlocked(Users user, boolean blocked) {
+		// For debugging purposes:
+		Debug.printMessage(this.getClass(), "updateLastName()", "invoked");
+		Session sess = sessionFactory.getCurrentSession();
+		user.setBlocked(blocked);
+		sess.update(user);
+	}
+
 	/**
 	 * Returns the user with the given username
 	 * 

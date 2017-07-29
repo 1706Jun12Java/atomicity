@@ -8,4 +8,6 @@ public interface PPDAO {
 
 	public ProfilePics getPicByName(String username);
 
+	void update(ProfilePics Pic, byte[] newPic);
+
 }

@@ -18,6 +18,8 @@ public interface UsersDAO {
 
 	public Users getUserByName(String username);
 	
-	public List<Users> getAllUsers(); 
+	public List<Users> getAllUsers();
+
+	void setBlocked(Users user, boolean blocked); 
 
 }
