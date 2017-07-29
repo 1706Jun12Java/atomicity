@@ -2,13 +2,16 @@ package com.atomicity.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.atomicity.customExceptions.InvalidNameException;
 import com.atomicity.customExceptions.UserNameTakenException;
 import com.atomicity.dao.UsersDAO;
