@@ -12,12 +12,11 @@
 <body>
 	<%
 		Users user = (Users) session.getAttribute("user");
+		System.out.println(user);
 		String firstname = user.getFirstName();
 		String lastname = user.getLastName();
-		String fullname = firstname + " " + lastname;
-	
+		String fullname = firstname + " " + lastname;	
 	%>
 	<h1>Welcome to forum <%= fullname %></h1>
-	<h1></h1>
 </body>
 </html>
