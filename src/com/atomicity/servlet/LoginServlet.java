@@ -72,7 +72,7 @@ public class LoginServlet extends HttpServlet {
 
 			// foward towards user account
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/jsp/account.jsp");
-			rd.forward(req, resp);
+			rd.include(req, resp);
 		} else {
 			// For now, a simple denied message (will change this later)
 			PrintWriter writer = resp.getWriter();

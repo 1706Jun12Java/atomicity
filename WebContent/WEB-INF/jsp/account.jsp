@@ -12,7 +12,7 @@
 <body>
 	<%
 		Users user = (Users) session.getAttribute("user");
-		System.out.println(user);
+		System.out.print(user);
 		String firstname = user.getFirstName();
 		String lastname = user.getLastName();
 		String fullname = firstname + " " + lastname;	
