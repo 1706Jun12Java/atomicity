@@ -43,9 +43,9 @@ public class UsersDAOImpl implements UsersDAO {
 			throw new InvalidNameException("There is an empty String");
 		}
 		// Get the session
-		Session sess = sessionFactory.getCurrentSession();
+		
 		// Check to see if the username is taken
-
+		Session sess = HibernateUtil.getSession();
 		Users userObj = getUserByName(newUser.getUsername());
 		// If the list is not empty, a user with the name was found
 		if (userObj != null) {
@@ -56,7 +56,10 @@ public class UsersDAOImpl implements UsersDAO {
 			// Debug
 			Debug.printMessage(this.getClass(), "push()", "username available.");
 			Debug.printErrorMessage(this.getClass(), "push()", "saving " + newUser.getUsername());
+			sess.beginTransaction();
 			sess.save(newUser);
+			sess.getTransaction().commit();
+			sess.close();
 		}
 		
 		Debug.printMessage(this.getClass(), "push()", "Ended");
@@ -150,8 +153,10 @@ public class UsersDAOImpl implements UsersDAO {
 	public Users getUserByName(String username) {
 		// For debugging purposes:
 		Debug.printMessage(this.getClass(), "getUserByName()", "invoked");
-		Session sess = sessionFactory.getCurrentSession();
+		Session sess = HibernateUtil.getSession();
+		sess.beginTransaction();
 		Users user = (Users) sess.get(Users.class, username);
+		sess.getTransaction().commit();
 		sess.close();
 		// For debugging purposes:
 		

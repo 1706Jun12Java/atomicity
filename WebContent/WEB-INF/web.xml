@@ -6,7 +6,7 @@
 	<display-name>Atomicity</display-name>
 	<servlet>
 		<servlet-name>register</servlet-name>
-		<servlet-class>servlet.RegisterServlet</servlet-class>
+		<servlet-class>com.atomicity.servlet.RegisterServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>register</servlet-name>
@@ -15,7 +15,7 @@
 	
 	<servlet>
 		<servlet-name>login</servlet-name>
-		<servlet-class>servlet.LoginServlet</servlet-class>
+		<servlet-class>com.atomicity.servlet.LoginServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>login</servlet-name>
@@ -24,7 +24,7 @@
 	
 	<servlet>
 		<servlet-name>loginVerify</servlet-name>
-		<servlet-class>servlet.LoginVerifyServlet</servlet-class>
+		<servlet-class>com.atomicity.servlet.LoginVerifyServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>loginVerify</servlet-name>
