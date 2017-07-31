@@ -13,7 +13,8 @@
 	<img id="logoImg2" src="img/atomicitylogo.png" alt="atomicity logo">
 	<div class="login-page">
 		<div class="form">
-			<form:form action="/login" method="POST" commandName="login" class="register-form">
+			<form:form action="/login" method="POST" commandName="login"
+				class="register-form">
 				<table>
 					<tr>
 						<td><form:label path="username">username:</form:label></td>

@@ -1,13 +1,15 @@
 package com.atomicity.controllers;
 
+import javax.validation.Valid;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import com.atomicity.components.LoginComponent;
 import com.atomicity.dao.UsersDAO;
 import com.atomicity.domain.Users;
 
@@ -16,37 +18,27 @@ import com.atomicity.domain.Users;
 public class LoginController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@PathVariable("username") String username, @PathVariable("password") String password, Model m) {
+	public String login(@Valid LoginComponent login, BindingResult br, Model m) {
 		ApplicationContext appCon = new ClassPathXmlApplicationContext("beans.xml");
 		UsersDAO uDAO = (UsersDAO) appCon.getBean("usersDAO");
-		Users user = uDAO.getUserByName(username);
+		Users user = uDAO.getUserByName(login.getUsername());
 
-		boolean validAuthentication = false;
 		if (user != null) {
 			// Check if password is correct
-			if (user.getPassword().equals(password)) {
-				validAuthentication = true;
+			if (user.getPassword().equals(login.getPassword())) {
+				m.addAttribute("firstname", user.getFirstName());
+				m.addAttribute("lastname", user.getLastName());
+				m.addAttribute("email", user.getEmail());
+				m.addAttribute("username", login.getUsername());
+				((AbstractApplicationContext) appCon).close();
+				return "account";
 			} else {
-				// wrong password...
-				validAuthentication = false;
+				// Wrong Password
 			}
 		} else {
-			// user doesn't exist
-			validAuthentication = false;
+			// User/Password does not exists
 		}
-
-		// if authentication is valid
-		if (validAuthentication) {
-			m.addAttribute("firstname", user.getFirstName());
-			m.addAttribute("lastname", user.getLastName());
-			m.addAttribute("email", user.getEmail());
-			m.addAttribute("username", username);
-			((AbstractApplicationContext) appCon).close();
-			return "account";
-		} else {
-			// For now, a simple denied message (will change this later
-			((AbstractApplicationContext) appCon).close();
-			return "error";
-		}
+		((AbstractApplicationContext) appCon).close();
+		return null;
 	}
 }
