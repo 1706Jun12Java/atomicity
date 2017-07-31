@@ -12,10 +12,11 @@ import com.atomicity.dao.UsersDAO;
 import com.atomicity.domain.Users;
 
 @Controller
+@RequestMapping("/login")
 public class LoginController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@PathVariable("user") String username, @PathVariable("password") String password, Model m) {
+	public String login(@PathVariable("username") String username, @PathVariable("password") String password, Model m) {
 		ApplicationContext appCon = new ClassPathXmlApplicationContext("beans.xml");
 		UsersDAO uDAO = (UsersDAO) appCon.getBean("usersDAO");
 		Users user = uDAO.getUserByName(username);
