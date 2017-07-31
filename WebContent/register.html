@@ -21,23 +21,20 @@
 
 			<p class="label">Firstname</p>
 			<span style="color: lightcoral"
-				ng-show="registerForm.firstname.$dirty && registerForm.firstname.$invalid">
-				<span ng-show="registerForm.$error.required">Field is
-					required.</span>
+				ng-show="registerForm.firstname.$invalid"> <span
+				ng-show="registerForm.$error.required">Field is required.</span>
 			</span> <br> <input class="textfield" type="text" name="firstname"
 				ng-model="firstname" required><br>
 
 			<p class="label">Lastname</p>
 			<span style="color: lightcoral"
-				ng-show="registerForm.lastname.$dirty && registerForm.lastname.$invalid">
-				<span ng-show="registerForm.$error.required">Field is
-					required.</span>
+				ng-show="registerForm.lastname.$invalid"> <span
+				ng-show="registerForm.$error.required">Field is required.</span>
 			</span> <br> <input class="textfield" type="text" name="lastname"
 				ng-model="lastname" required><br>
 
 			<p class="label">Email</p>
-			<span style="color: lightcoral"
-				ng-show="registerForm.email.$dirty && registerForm.email.$invalid">
+			<span style="color: lightcoral" ng-show="registerForm.email.$invalid">
 				<span ng-show="registerForm.email.$error.required">Email is
 					required.</span> <span ng-show="registerForm.email.$error.email">Invalid
 					email address.</span>
@@ -50,8 +47,7 @@
 			<br>
 
 			<p class="label">Username</p>
-			<span style="color: lightcoral"
-				ng-show="registerForm.user.$dirty && registerForm.user.$invalid">
+			<span style="color: lightcoral" ng-show="registerForm.user.$invalid">
 				<span ng-show="registerForm.$error.required">Username is
 					required.</span>
 			</span> <br> <input class="textfield" type="text" name="user"
@@ -64,10 +60,10 @@
 			<br> <input class="textfield" type="password" name="cpassword"><br>
 
 			<input class="submitButton" type="submit"
-				ng-disabled="registerForm.user.$dirty && registerForm.user.$invalid || 
-				registerForm.firstname.$dirty && registerForm.firstname.$invalid ||
-				registerForm.lastname.$dirty && registerForm.lastname.$invalid ||
-				registerForm.email.$dirty && registerForm.email.$invalid"
+				ng-disabled="registerForm.user.$invalid || 
+				registerForm.firstname.$invalid ||
+				registerForm.lastname.$invalid ||
+				registerForm.email.$invalid"
 				value="Create Account">
 		</form>
 
@@ -76,10 +72,10 @@
 	<script type="text/javascript">
 	var registerApp = angular.module('registerApp', []);
 	registerApp.controller('registerCtrl', function($scope) {
-		$scope.user = '[Enter Username]';
-		$scope.firstname = '[Enter First Name]';
-		$scope.lastname = '[Enter Last Name]';
-		$scope.email = '[Enter Email]';
+		$scope.user = '';
+		$scope.firstname = '';
+		$scope.lastname = '';
+		$scope.email = '';
 		$scope.pass1 = '';
 		$scope.pass2 = '';
 	});

@@ -4,7 +4,6 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -61,7 +60,7 @@ public class UsersDAOImpl implements UsersDAO {
 			sess.getTransaction().commit();
 			sess.close();
 		}
-		
+
 		Debug.printMessage(this.getClass(), "push()", "Ended");
 
 	}
@@ -79,11 +78,8 @@ public class UsersDAOImpl implements UsersDAO {
 	public void updatePassword(Users user, String newVal) {
 		Debug.printMessage(this.getClass(), "updatePassword()", "Invoked");
 		Session sess = HibernateUtil.getSession();
-		Transaction trans = sess.beginTransaction();
 		user.setPassword(newVal);
 		sess.update(user);
-		trans.commit();
-		sess.close();
 		Debug.printMessage(this.getClass(), "updatePassword()", "Ended");
 
 	}
@@ -102,11 +98,8 @@ public class UsersDAOImpl implements UsersDAO {
 		// For debugging purposes:
 		Debug.printMessage(this.getClass(), "updateFirstName()", "Invoked");
 		Session sess = HibernateUtil.getSession();
-		Transaction trans = sess.beginTransaction();
 		user.setFirstName(newVal);
 		sess.update(user);
-		trans.commit();
-		sess.close();
 		Debug.printMessage(this.getClass(), "updateFirstName()", "Ended");
 	}
 
@@ -124,11 +117,8 @@ public class UsersDAOImpl implements UsersDAO {
 		// For debugging purposes:
 		Debug.printMessage(this.getClass(), "updateLastName()", "Invoked");
 		Session sess = HibernateUtil.getSession();
-		Transaction trans = sess.beginTransaction();
 		user.setLastName(newVal);
 		sess.update(user);
-		trans.commit();
-		sess.close();
 		Debug.printMessage(this.getClass(), "updateLastName()", "Ended");
 	}
 
@@ -156,11 +146,10 @@ public class UsersDAOImpl implements UsersDAO {
 		Session sess = HibernateUtil.getSession();
 		sess.beginTransaction();
 		Users user = (Users) sess.get(Users.class, username);
-		sess.getTransaction().commit();
-		sess.close();
 		// For debugging purposes:
-		
-		Debug.printMessage(this.getClass(), "getUserByName()", "Ended returning: " + ((user==null) ? user:user.getUsername()));
+		System.out.println(user);
+		Debug.printMessage(this.getClass(), "getUserByName()",
+				"Ended returning: " + ((user == null) ? user : user.getUsername()));
 		return user;
 	}
 
