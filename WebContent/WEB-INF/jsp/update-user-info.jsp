@@ -19,7 +19,7 @@
 	
 	<form action="updateEmail" method="POST">
 		<input type ="text" name="email" placeholder="email" />
-		<input type="submit" value="Update"/>
+		<input type="submit" value="Update" />
 	</form>
 	
 		<form action="updatePassword" method="POST">

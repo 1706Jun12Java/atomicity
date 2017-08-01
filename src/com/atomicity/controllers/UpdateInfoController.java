@@ -11,6 +11,8 @@ import com.atomicity.domain.Users;
 
 @Controller
 public class UpdateInfoController {
+	private static final String VIEW_NAME="update-user-info";
+	
 
 	// ======== UPDATE FIRSTNAME ============//
 	@RequestMapping("/updateFirstName")
@@ -25,7 +27,7 @@ public class UpdateInfoController {
 		// Update user's new first name
 		new UsersDAOImpl().updateFirstName(user, newFirstname);
 
-		return "";
+		return VIEW_NAME;
 	}
 
 	// ======== UPDATE LASTNAME ===========//
@@ -41,7 +43,7 @@ public class UpdateInfoController {
 		// Update user's new last name
 		new UsersDAOImpl().updateLastName(user, newLastname);
 
-		return "";
+		return VIEW_NAME;
 	}
 
 	// ======== UPDATE EMAIL ===========//
@@ -57,7 +59,7 @@ public class UpdateInfoController {
 		// TODO create DAO for updating email...
 		// TODO call the DAO method for updateEmail
 
-		return " ";
+		return VIEW_NAME;
 	}
 
 	//============= UPDATE PASSWORD ==============//
@@ -73,6 +75,6 @@ public class UpdateInfoController {
 		// Update user's new password
 		new UsersDAOImpl().updatePassword(user, newPassword);
 
-		return "";
+		return VIEW_NAME;
 	}
 }
