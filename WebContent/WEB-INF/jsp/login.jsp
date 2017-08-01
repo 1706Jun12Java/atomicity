@@ -10,7 +10,10 @@
 <link rel="stylesheet" href="css/mystyle.css" />
 </head>
 <body>
+
+
 	<img id="logoImg2" src="img/atomicitylogo.png" alt="atomicity logo">
+	
 	<div class="login-page">
 		<div class="form">
 			<form:form action="/login" method="POST" commandName="login"
@@ -37,5 +40,6 @@
 			</form:form>
 		</div>
 	</div>
+	<h1>${message}</h1>
 </body>
 </html>

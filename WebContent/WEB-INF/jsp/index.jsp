@@ -4,21 +4,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Login page</title>
-    <link rel="stylesheet" href="../css/normalize.css"/>
-    <link rel="stylesheet" href="../css/mystyle.css"/>
-  </head>
-  <body>
-  <img id="logoImg2" src="../img/atomicitylogo.png" alt="atomicity logo">
-  <div class="login-page">
-  <div class="form">
-    <form action ="login" method="post" class="login-form">
-      <input type="text" placeholder="username"/>
-      <input type="password" placeholder="password"/>
-      <button>login</button>
-      <p class="message">Not registered? <a href="register.html">Create an account</a></p>
-    </form>
-  </div>
-</div>
-  </body>
+<title>Insert title here</title>
+</head>
+<body>
+<div class="main-header-container">
+		<header>
+			<img id="logoImg" src="img/atomicitylogo.png" alt="atomicity logo">
+			<h1>The forum that never dies</h1>
+			<nav>
+				<ul>
+					<li><a href="loginVerify">GREEEEEN LOG IN</a></li>
+					<li><a href="register.html">Register</a></li>
+					<li><a href="">About Us</a></li>
+				</ul>
+			</nav>
+		</header>
+	</div>
+</body>
+</body>
 </html>

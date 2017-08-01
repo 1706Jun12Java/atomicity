@@ -14,10 +14,9 @@ import com.atomicity.dao.UsersDAO;
 import com.atomicity.domain.Users;
 
 @Controller
-@RequestMapping("/login")
 public class LoginController {
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/loggingIn", method = RequestMethod.POST)
 	public String login(@Valid LoginComponent login, BindingResult br, Model m) {
 		ApplicationContext appCon = new ClassPathXmlApplicationContext("beans.xml");
 		UsersDAO uDAO = (UsersDAO) appCon.getBean("usersDAO");

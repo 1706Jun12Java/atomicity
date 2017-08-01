@@ -15,6 +15,8 @@ public interface UsersDAO {
 	public void updateFirstName(Users user, String newVal);
 	
 	public void updateLastName(Users user, String newVal);
+	
+	public void updateEmail(Users user, String newVal);
 
 	public Users getUserByName(String username);
 	

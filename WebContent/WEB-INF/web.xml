@@ -3,7 +3,7 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
-	<!--  
+	 
 	<display-name>Atomicity</display-name>
 
 	<servlet>
@@ -15,20 +15,20 @@
 		<url-pattern>/register</url-pattern>
 	</servlet-mapping>
 
-	<servlet>
+<!-- 	<servlet>
 		<servlet-name>loginVerify</servlet-name>
 		<servlet-class>com.atomicity.servlet.LoginVerifyServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>loginVerify</servlet-name>
 		<url-pattern>/loginVerify</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/webBeans.xml</param-value>
 	</context-param>
-	-->
+	
 	<servlet>
 		<servlet-name>MasterServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -45,4 +45,5 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	
 </web-app>

@@ -33,7 +33,8 @@ public class LoginVerifyServlet extends HttpServlet {
 			rd.forward(req, resp);
 		}
 		else {
-			RequestDispatcher rd = req.getRequestDispatcher("login.html");
+			req.setAttribute("message", "my fav color is green");
+			RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
 			rd.forward(req, resp);
 		}
 	}
