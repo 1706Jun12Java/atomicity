@@ -57,7 +57,7 @@ public class UpdateInfoController {
 		// TODO create DAO for updating email...
 		// TODO call the DAO method for updateEmail
 
-		return "";
+		return " ";
 	}
 
 	//============= UPDATE PASSWORD ==============//
