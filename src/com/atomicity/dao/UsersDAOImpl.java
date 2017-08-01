@@ -163,4 +163,15 @@ public class UsersDAOImpl implements UsersDAO {
 		return users;
 	}
 
+	@Override
+	@Transactional
+	public void updateEmail(Users user, String newVal) {
+		// For debugging purposes:
+		Debug.printMessage(this.getClass(), "updateEmail()", "Invoked");
+		Session sess = HibernateUtil.getSession();
+		user.setEmail(newVal);
+		sess.update(user);
+		Debug.printMessage(this.getClass(), "updateEmail()", "Ended");
+	}
+
 }
