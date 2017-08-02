@@ -119,9 +119,12 @@ public class RegisterController {
 		return false;
 	}
 	
-	private boolean doesUsernameExist(String username) {
-		User user = new UserDAOImpl().getUserByName(username);
-		if(user!= null) {
+	private boolean doesUsernameExist(String username){
+		User user;
+		try {
+			user = new UserDAOImpl().getUserByName(username);
+		} catch (Exception e) {
+			e.printStackTrace();
 			return true;
 		}
 		

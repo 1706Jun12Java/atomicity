@@ -31,9 +31,9 @@ public class UserDAOImpl implements UserDAO {
 		Session sess = HibernateUtil.getSession();
 		Transaction tx = sess.beginTransaction();
 		// Check to see if the username is taken
-		User userObj = getUserByName(newUser.getUsername());
+		User user = (User) sess.get(User.class, newUser.getUsername());
 		// If the list is not empty, a user with the name was found
-		if (userObj != null) {
+		if (user != null) {
 			sess.close();
 			throw new UserNameTakenException("The username was found in the database");
 		} else {
@@ -107,7 +107,7 @@ public class UserDAOImpl implements UserDAO {
 		tx.commit();
 		sess.close();
 	}
-	
+
 	@Override
 	public void updateEmail(User user, String newVal) {
 		Session sess = HibernateUtil.getSession();
@@ -123,13 +123,18 @@ public class UserDAOImpl implements UserDAO {
 	 * 
 	 * @param username
 	 *            The username to find
+	 * @throws UserNameDoesNotExistsException 
 	 */
 	@Override
-	public User getUserByName(String username) {
+	public User getUserByName(String username) throws UserNameDoesNotExistsException {
 		Session sess = HibernateUtil.getSession();
 		User user = (User) sess.get(User.class, username);
 		sess.close();
-		return user;
+		if (user == null) {
+			throw new UserNameDoesNotExistsException();
+		} else {
+			return user;
+		}
 	}
 
 	/**

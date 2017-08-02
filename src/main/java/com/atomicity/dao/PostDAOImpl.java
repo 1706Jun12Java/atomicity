@@ -5,28 +5,25 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.springframework.transaction.annotation.Transactional;
-import com.atomicity.domain.Topic;
+import com.atomicity.domain.Post;
 import com.atomicity.util.HibernateUtil;
 
-@Transactional
-public class TopicDAOImpl implements TopicDAO {
+public class PostDAOImpl implements PostDAO {
 
 	@Override
-	public List<Topic> getAllTopics() {
+	public List<Post> getAllPosts() {
 		Session sess = HibernateUtil.getSession();
-		Query query = sess.getNamedQuery("getAllTopics");
-		List<Topic> topic = query.list();
+		Query query = sess.getNamedQuery("getAllPosts");
+		List<Post> posts = query.list();
 		sess.close();
-		return topic;
+		return posts;
 	}
 
 	@Override
-	@Transactional
-	public void push(Topic topic) {
+	public void push(Post post) {
 		Session sess = HibernateUtil.getSession();
 		Transaction tx = sess.beginTransaction();
-		sess.save(topic);
+		sess.save(post);
 		tx.commit();
 		sess.close();
 

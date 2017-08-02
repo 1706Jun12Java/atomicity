@@ -16,7 +16,9 @@
 			<nav>
 				<ul>
 					<li><a href="loginVerify">Sign in</a></li>
+
 					<li><a href="registerLink">Register</a></li>
+
 					<li><a href="">About Us</a></li>
 				</ul>
 			</nav>

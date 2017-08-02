@@ -4,8 +4,11 @@
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+<<<<<<< HEAD
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
+=======
+>>>>>>> 3ed718111981bb8ba08233f1b93d0897596d4bab
         <property name="context-root" value="AtomicityRemake"/>
         <property name="java-output-path" value="/AtomicityRemake/target/classes"/>
     </wb-module>
