@@ -12,7 +12,8 @@ import com.atomicity.domain.User;
 
 @Controller
 public class UpdateUserInfo {
-	private final String VIEW_NAME = ""; // After clicking an update button
+	private final String UPDATE_MSG = "(Updated)";
+	private final String VIEW_NAME = "update-user-info"; // After clicking an update button
 	private final String DONE_VIEW_NAME = ""; // After clicking the 'done' button
 	
 	@RequestMapping("/updateFirstname")
@@ -24,7 +25,9 @@ public class UpdateUserInfo {
 		String newFirstname = req.getParameter("firstname");
 		
 		if(isUserSignedIn(user)) {
+			model.addAttribute("updateMsg1", UPDATE_MSG);
 			new UserDAOImpl().updateFirstName(user, newFirstname);
+			user.setFirstName(newFirstname);
 		}
 		else {
 			// Redirect to login page, if user not logged in 
@@ -39,10 +42,12 @@ public class UpdateUserInfo {
 		HttpSession session = req.getSession();
 		User user = (User) req.getAttribute("user");
 		
-		String newFirstname = req.getParameter("firstname");
+		String newLastname = req.getParameter("Lastname");
 		
 		if(isUserSignedIn(user)) {
-			new UserDAOImpl().updateFirstName(user, newFirstname);
+			model.addAttribute("updateMsg2", UPDATE_MSG);
+			new UserDAOImpl().updateLastName(user, newLastname);
+			user.setLastName(newLastname);
 		}
 		else {
 			// Redirect to login page, if user not logged in 
@@ -57,10 +62,13 @@ public class UpdateUserInfo {
 		HttpSession session = req.getSession();
 		User user = (User) req.getAttribute("user");
 		
-		String newFirstname = req.getParameter("firstname");
+		String newEmail = req.getParameter("email");
 		
 		if(isUserSignedIn(user)) {
-			new UserDAOImpl().updateFirstName(user, newFirstname);
+			model.addAttribute("updateMsg3", UPDATE_MSG);
+			new UserDAOImpl().updateEmail(user, newEmail);
+			user.setEmail(newEmail);
+			
 		}
 		else {
 			// Redirect to login page, if user not logged in 
@@ -75,10 +83,12 @@ public class UpdateUserInfo {
 		HttpSession session = req.getSession();
 		User user = (User) req.getAttribute("user");
 		
-		String newFirstname = req.getParameter("firstname");
+		String newPassword = req.getParameter("password");
 		
 		if(isUserSignedIn(user)) {
-			new UserDAOImpl().updateFirstName(user, newFirstname);
+			model.addAttribute("updateMsg4", UPDATE_MSG);
+			new UserDAOImpl().updatePassword(user, newPassword);
+			user.setPassword(newPassword);
 		}
 		else {
 			// Redirect to login page, if user not logged in 
