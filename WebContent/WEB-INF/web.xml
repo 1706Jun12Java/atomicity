@@ -2,35 +2,15 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	version="3.1">
-	 
-	<display-name>Atomicity</display-name>
+	id="WebApp_ID" version="3.1">
 
+	<display-name>AtomicityRemake</display-name>
+
+	<!-- Spring MVC Configs -->
+
+	<!-- Step 1: Configure Spring MVC Dispatcher Servlet -->
 	<servlet>
-		<servlet-name>register</servlet-name>
-		<servlet-class>com.atomicity.servlet.RegisterServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>register</servlet-name>
-		<url-pattern>/register</url-pattern>
-	</servlet-mapping>
-
-<!-- 	<servlet>
-		<servlet-name>loginVerify</servlet-name>
-		<servlet-class>com.atomicity.servlet.LoginVerifyServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>loginVerify</servlet-name>
-		<url-pattern>/loginVerify</url-pattern>
-	</servlet-mapping> -->
-
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/webBeans.xml</param-value>
-	</context-param>
-	
-	<servlet>
-		<servlet-name>MasterServlet</servlet-name>
+		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
@@ -38,12 +18,11 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+
+	<!-- Step 2: Set up URL mapping for Spring MVC Dispatcher Servlet -->
 	<servlet-mapping>
-		<servlet-name>MasterServlet</servlet-name>
-		<url-pattern>/Atomicity/*</url-pattern>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
 	
 </web-app>
