@@ -88,7 +88,7 @@ public class RegisterController {
 		
 		
 		if(allowToRegister) {
-			
+		
 			User user = new User(username, email, password, firstname, lastname);
 			try {
 				new UserDAOImpl().push(user);
