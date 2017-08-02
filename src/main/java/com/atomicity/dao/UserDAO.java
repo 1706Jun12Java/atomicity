@@ -3,12 +3,13 @@ package com.atomicity.dao;
 import java.util.List;
 
 import com.atomicity.customExceptions.InvalidNameException;
+import com.atomicity.customExceptions.UserNameDoesNotExistsException;
 import com.atomicity.customExceptions.UserNameTakenException;
 import com.atomicity.domain.User;
 
 public interface UserDAO {
 
-	public void push(User newUser) throws UserNameTakenException, InvalidNameException;
+	public void push(User newUser) throws UserNameTakenException, InvalidNameException, UserNameDoesNotExistsException;
 
 	public void updatePassword(User user, String newVal);
 
@@ -20,7 +21,7 @@ public interface UserDAO {
 
 	void updateBlocked(User user, boolean blocked);
 
-	public User getUserByName(String username);
+	public User getUserByName(String username) throws UserNameDoesNotExistsException;
 
 	public List<User> getAllUser();
 
