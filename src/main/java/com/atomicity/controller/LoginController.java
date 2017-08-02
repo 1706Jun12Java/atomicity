@@ -31,7 +31,7 @@ public class LoginController {
 				HttpSession session = req.getSession();
 				session.setAttribute("user", user);
 				// we go to the site
-				return "testing";
+				return "account";
 			} else {
 				// Password is incorrect so we go back with the message
 				model.addAttribute("error", "Password is incorrect");
@@ -44,4 +44,12 @@ public class LoginController {
 			return "login";
 		}
 	}
+
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest req, Model model) {
+		HttpSession session = req.getSession();
+		session.invalidate();
+		return "index";
+	}
+
 }
