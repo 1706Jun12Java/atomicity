@@ -11,7 +11,7 @@
 <body>
 <div class="main-header-container">
 		<header>
-			<img id="logoImg" src="img/atomicitylogo.png" alt="atomicity logo">
+			<img id="logoImg" src="resources/img/atomicitylogo.png" alt="atomicity logo">
 			<h1>The forum that never dies</h1>
 			<nav>
 				<ul>
