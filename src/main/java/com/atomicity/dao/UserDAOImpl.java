@@ -149,5 +149,17 @@ public class UserDAOImpl implements UserDAO {
 		sess.close();
 		return users;
 	}
+	
+	// Needed for null value return
+	public User getUserByNameForRegister(String username) {
+		Session sess = HibernateUtil.getSession();
+		User user = (User) sess.get(User.class, username);
+		sess.close();
+		if (user == null) {
+			return null;
+		} else {
+			return user;
+		}
+	}
 
 }

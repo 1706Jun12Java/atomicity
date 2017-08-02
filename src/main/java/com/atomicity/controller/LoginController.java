@@ -26,7 +26,7 @@ public class LoginController {
 		try {
 			User user = dao.getUserByName(username);
 			if (user.getPassword() == password) {
-				return "account";
+				return "testing-page";
 			} else {
 				model.addAttribute("error", "Password is incorrect");
 				return "login";

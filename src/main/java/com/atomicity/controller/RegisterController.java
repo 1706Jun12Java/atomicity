@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.atomicity.customExceptions.InvalidNameException;
+import com.atomicity.customExceptions.UserNameDoesNotExistsException;
 import com.atomicity.customExceptions.UserNameTakenException;
 import com.atomicity.dao.UserDAOImpl;
 import com.atomicity.domain.User;
@@ -121,15 +122,8 @@ public class RegisterController {
 	
 	private boolean doesUsernameExist(String username){
 		User user;
-		try {
-			user = new UserDAOImpl().getUserByName(username);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return true;
-		}
-		
-		
-		return false;
+		user = new UserDAOImpl().getUserByNameForRegister(username);
+		return (user!=null);
 	}
 	
 	
