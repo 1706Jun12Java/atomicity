@@ -8,12 +8,12 @@
 </head>
 <body>
 	<form action="updateFirstname" method="POST">
-		<input type ="text" name="" placeholder="firstname" /> 
+		<input type ="text" name="firstname" placeholder="firstname" /> 
 		<input type="submit" value="Update" /><p>${updateMsg1}</p>
 	</form>
 	
 	<form action="updateLastname" method="POST">
-		<input type ="text" name="" placeholder="lastname" />
+		<input type ="text" name="lastname" placeholder="lastname" />
 		<input type="submit" value="Update" /> <p>${updateMsg2}</p>
 	</form>
 	

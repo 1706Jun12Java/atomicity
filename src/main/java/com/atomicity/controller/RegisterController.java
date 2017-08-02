@@ -11,6 +11,7 @@ import com.atomicity.customExceptions.UserNameDoesNotExistsException;
 import com.atomicity.customExceptions.UserNameTakenException;
 import com.atomicity.dao.UserDAOImpl;
 import com.atomicity.domain.User;
+import com.atomicity.util.Debug;
 
 @Controller
 public class RegisterController {
@@ -32,7 +33,7 @@ public class RegisterController {
 	
 	@RequestMapping("/register")
 	public String getRegisterForm(HttpServletRequest req, Model model) {
-		
+	Debug.printMessage(this.getClass(), "getRegisterForm()", "Invoked");
 		// Get 
 		String firstname = req.getParameter("firstname");
 		String lastname = req.getParameter("lastname");
@@ -46,49 +47,58 @@ public class RegisterController {
 		if(isEmptyOrNull(firstname)) {
 			allowToRegister = false;
 			model.addAttribute("firstnameMSG", FIRSTNAME_BLANK_MSG);
+			Debug.printErrorMessage(this.getClass(), "getRegisterForm()", FIRSTNAME_BLANK_MSG);
 		}
 		
 		if(isEmptyOrNull(lastname)) {
 			allowToRegister = false;
 			model.addAttribute("lastnameMSG", LASTNAME_BLANK_MSG);
+			Debug.printErrorMessage(this.getClass(), "getRegisterForm()", LASTNAME_BLANK_MSG);
 		}
 		
 		if(isEmptyOrNull(email)) {
 			allowToRegister = false;
 			model.addAttribute("emailMSG", EMAIL_BLANK_MSG);
+			Debug.printErrorMessage(this.getClass(), "getRegisterForm()", EMAIL_BLANK_MSG);
 		}
 		else if(!email.contains("@")) {
 			allowToRegister = false;
 			model.addAttribute("emailMSG", EMAIL_INVALID_MSG);
+			Debug.printErrorMessage(this.getClass(), "getRegisterForm()", EMAIL_INVALID_MSG);
 		}
 		
 		if(isEmptyOrNull(username)) {
 			allowToRegister = false;
 			model.addAttribute("usernameMSG", USERNAME_BLANK_MSG);
+			Debug.printErrorMessage(this.getClass(), "getRegisterForm()", USERNAME_BLANK_MSG);
 		}
 		else if(doesUsernameExist(username)) {
 			allowToRegister = false;
 			model.addAttribute("usernameMSG", USERNAME_INVALID_MSG);
+			Debug.printErrorMessage(this.getClass(), "getRegisterForm()", USERNAME_INVALID_MSG);
 		}
 		
 		if(isEmptyOrNull(password)) {
 			allowToRegister = false;
 			model.addAttribute("passwordMSG", PASSWORD_BLANK_MSG);
+			Debug.printErrorMessage(this.getClass(), "getRegisterForm()", PASSWORD_BLANK_MSG);
 		}
 		
 		if(isEmptyOrNull(cpassword)) {
 			allowToRegister = false;
 			model.addAttribute("cpasswordMSG", CPASSWORD_BLANK_MSG);
+			Debug.printErrorMessage(this.getClass(), "getRegisterForm()", CPASSWORD_BLANK_MSG);
 		}
 		
 		if(!(cpassword.equals(password))) {
 			allowToRegister = false;
 			model.addAttribute("cpasswordMMSG", CPASSWORD_MISMATCH_MSG);
+			Debug.printErrorMessage(this.getClass(), "getRegisterForm()", CPASSWORD_MISMATCH_MSG);
 		}
 		
 		
 		if(allowToRegister) {
-			
+			Debug.printMessage(this.getClass(), "getRegisterForm()", "User allowed to register");
 			User user = new User(username, email, password, firstname, lastname);
 			try {
 				new UserDAOImpl().push(user);
@@ -98,17 +108,22 @@ public class RegisterController {
 				e.printStackTrace();
 			}
 			
-			
+			Debug.printMessage(this.getClass(), "getRegisterForm()", "ENDED");
 			return NEXT_PAGE;
 		}
 		else {
+			Debug.printErrorMessage(this.getClass(), "getRegisterForm()", "User not allowed to register");
+			Debug.printMessage(this.getClass(), "getRegisterForm()", "ENDED");
 			return SAME_PAGE;
 		}
 	}
 	
 	@RequestMapping("/loginAfterRegister")
 	public String goToLoginPage() {
+		Debug.printMessage(this.getClass(), "goToLoginPage()", "Invoked");
+		Debug.printMessage(this.getClass(), "goToLoginPage()", "ENDED");
 		return "login";
+		
 	}
 	
 	

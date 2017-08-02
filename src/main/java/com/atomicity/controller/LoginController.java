@@ -31,7 +31,7 @@ public class LoginController {
 				HttpSession session = req.getSession();
 				session.setAttribute("user", user);
 				// we go to the site
-				return "account";
+				return "update-user-info";
 			} else {
 				// Password is incorrect so we go back with the message
 				model.addAttribute("error", "Password is incorrect");

@@ -20,7 +20,8 @@ public class UpdateUserInfo {
 	public String updateFirstname(HttpServletRequest req, Model model) {
 		// Get current user
 		HttpSession session = req.getSession();
-		User user = (User) req.getAttribute("user");
+		User user = (User) session.getAttribute("user");
+		System.out.println(user.getFirstName());
 		
 		String newFirstname = req.getParameter("firstname");
 		
@@ -40,9 +41,9 @@ public class UpdateUserInfo {
 	public String updateLastname(HttpServletRequest req, Model model) {
 		// Get current user
 		HttpSession session = req.getSession();
-		User user = (User) req.getAttribute("user");
+		User user = (User) session.getAttribute("user");
 		
-		String newLastname = req.getParameter("Lastname");
+		String newLastname = req.getParameter("lastname");
 		
 		if(isUserSignedIn(user)) {
 			model.addAttribute("updateMsg2", UPDATE_MSG);
@@ -60,7 +61,7 @@ public class UpdateUserInfo {
 	public String updateEmail(HttpServletRequest req, Model model) {
 		// Get current user
 		HttpSession session = req.getSession();
-		User user = (User) req.getAttribute("user");
+		User user = (User) session.getAttribute("user");
 		
 		String newEmail = req.getParameter("email");
 		
@@ -81,7 +82,7 @@ public class UpdateUserInfo {
 	public String updatePassword(HttpServletRequest req, Model model) {
 		// Get current user
 		HttpSession session = req.getSession();
-		User user = (User) req.getAttribute("user");
+		User user = (User) session.getAttribute("user");
 		
 		String newPassword = req.getParameter("password");
 		
@@ -100,6 +101,7 @@ public class UpdateUserInfo {
 	
 	// HELPER METHOD
 	public boolean isUserSignedIn(User user) {
+		System.out.println("|@| isUserSignedIn() returns: " + (user != null));
 		return (user != null);
 	}
 }
