@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>USERNAME: ${username} </h1>
-	<h1>PASSWORD: ${password} </h1>
+	<h2>THANK YOU</h2>
+	<h4>Your account is now created</h4>
+	<h4>Click <a href="loginAfterRegister">here</a> to login</h4>
 </body>
 </html>

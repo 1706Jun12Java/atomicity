@@ -11,4 +11,9 @@ public class HomeController {
 		System.out.println("@@@@@@@@@@@@@@@@@@@@HOME CONTROLLER@@@@@@@@@@@@@@@@@@@@@@@@@");
 		return "index";
 	}
+	
+	@RequestMapping("/registerLink")
+	public String showRegisterPage() {
+		return "register";
+	}
 }
