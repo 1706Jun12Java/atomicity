@@ -4,7 +4,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @NamedQueries({ @NamedQuery(name = "getAllTopics", query = "FROM Topic"),
-		@NamedQuery(name = "getAllTopicsByCategory", query = "FROM Topic WHERE category = :var ORDER BY dateSubmitted") })
+		@NamedQuery(name = "getAllTopicsByCategory", query = "FROM Topic WHERE category = :var ORDER BY dateSubmitted DESC") })
 
 @Entity
 @Table(name = "A_TOPICS")
@@ -54,6 +54,8 @@ public class Topic {
 	@Column(name = "T_FIRST_POST")
 	private String firstPost;
 
+	private String url;
+
 	public int getId() {
 		return id;
 	}
@@ -102,10 +104,20 @@ public class Topic {
 		this.firstPost = firstPost;
 	}
 
+	public String getUrl() {
+		return url;
+	}
+
+	public void generateURL() {
+		this.url = "";
+		this.url += "/Atomicity/Topic/";
+		this.url += this.getId() + "/";
+		this.url += this.getTitle().replaceAll(" ", "-");
+	}
+
 	@Override
 	public String toString() {
 		return "Topic [id=" + id + ", author=" + author + ", category=" + category + ", dateSubmitted=" + dateSubmitted
-				+ ", title=" + title + ", firstPost=" + firstPost + "]";
+				+ ", title=" + title + ", firstPost=" + firstPost + ", url=" + url + "]";
 	}
-
 }

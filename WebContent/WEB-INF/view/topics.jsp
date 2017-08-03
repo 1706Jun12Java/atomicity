@@ -5,18 +5,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>${category} Section</title>
+<title>${category}Section</title>
 </head>
 <body>
 	<table>
 		<c:forEach items="${topics}" var="top">
-
 			<tr>
-				<td><c:out value="${top.id}" /></td>
+				<td><a href=${top.url} >${top.title}</a></td>
 				<td><c:out value="${top.author}" /></td>
+				<td><c:out value="${top.firstPost}" /></td>
 				<td><c:out value="${top.dateSubmitted}" /></td>
 			</tr>
 		</c:forEach>
+
 	</table>
 </body>
 </html>

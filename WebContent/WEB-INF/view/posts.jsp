@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,14 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Categories</h1>
-	<table>
-		<tr>
-			<td><a href="/Atomicity/MISC/topics">MISC</a></td>
-			<td><p>Miscellaneous Section</p></td>
-		</tr>
-	</table>
-	<a href="/Atomicity/addTopicPage">Create A New Topic</a>
-	<a href="/Atomicity/logout">Logout</a>
+<p>${id}</p>
+<p>${title}</p>
 </body>
 </html>
