@@ -34,7 +34,8 @@ public class LoginController {
 				// we go to the site
 
 				if (user.getRole().equals(User.ADMIN_ROLE)) {
-					return "admin-view-users.jsp";
+					model.addAttribute("allUsers", new UserDAOImpl().getAllUser());
+					return "admin-view-users";
 				} else {
 					return "account";
 				}

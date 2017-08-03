@@ -12,6 +12,7 @@ import com.atomicity.util.Debug;
 
 @Controller
 public class AdminBlockUserController {
+	private final String SAME_PAGE = "admin-view-users";
 	private final String USER_NOT_FOUND_MSG = "*User not found";
 	private final String USER_BLOCKED_MSG = "*User Blocked";
 	private final String USER_UNBLOCKED_MSG = "*User UnBlocked";
@@ -35,7 +36,7 @@ public class AdminBlockUserController {
 		}
 		
 		Debug.printMessage(this.getClass(), "blockUser()", "ENDED");
-		return "";
+		return SAME_PAGE;
 	}
 	
 	@RequestMapping("unBlock")
@@ -56,6 +57,6 @@ public class AdminBlockUserController {
 		}
 		
 		Debug.printMessage(this.getClass(), "unBlockUser()", "ENDED");
-		return "";
+		return SAME_PAGE;
 	}
 }

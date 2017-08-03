@@ -11,6 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<table>
 		<tr>
 			<th>User</th>
@@ -23,13 +24,23 @@
 		<c:forEach items="${allUsers}" var="user">
     	<tr>      
 	        <td>${user.username}</td>
-	        <td>${user.firstname}</td>
-	        <td>${user.lastname}</td>
+	        <td>${user.firstName}</td>
+	        <td>${user.lastName}</td>
 	        <td>${user.email}</td>
 	        <td>${user.role}</td>
 	        <td>${user.blockedStr}</td>
-    	</tr>	
-		</c:forEach>
+    	</tr>
+		</c:forEach>		
 	</table>		
+		<form action="block" method="GET">
+			<input type="text" name="userToBlock" placeholder="Enter username" />
+			<input type="submit" value="Block"/>
+		</form>
+		
+		<form action="unBlock" method="GET">
+			<input type="text" name="userToUnBlock" placeholder="Enter username" />
+			<input type="submit" value="UnBlock"/>			
+						
+		</form>
 </body>
 </html>
