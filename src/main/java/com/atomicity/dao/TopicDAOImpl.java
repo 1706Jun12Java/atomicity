@@ -32,7 +32,9 @@ public class TopicDAOImpl implements TopicDAO {
 	@Override
 	public Topic getTopicsById(int id) {
 		Session sess = HibernateUtil.getSession();
-		return (Topic) sess.get(Topic.class, id);
+		Topic topic = (Topic) sess.get(Topic.class, id);
+		sess.close();
+		return topic;
 	}
 
 	@Override
@@ -41,6 +43,7 @@ public class TopicDAOImpl implements TopicDAO {
 		Query query = sess.getNamedQuery("getAllTopicsByCategory");
 		query.setParameter("var", category);
 		List<Topic> topics = query.list();
+		sess.close();
 		return topics;
 	}
 }
