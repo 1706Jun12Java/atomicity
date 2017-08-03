@@ -8,23 +8,23 @@
 </head>
 <body>
 	<form action="updateFirstname" method="POST">
-		<input type ="text" name="" placeholder="firstname" />
-		<input type="submit" value="Update" />
+		<input type ="text" name="firstname" placeholder="firstname" /> 
+		<input type="submit" value="Update" /><p>${updateMsg1}</p>
 	</form>
 	
 	<form action="updateLastname" method="POST">
-		<input type ="text" name="" placeholder="lastname" />
-		<input type="submit" value="Update" />
+		<input type ="text" name="lastname" placeholder="lastname" />
+		<input type="submit" value="Update" /> <p>${updateMsg2}</p>
 	</form>
 	
 	<form action="updateEmail" method="POST">
 		<input type ="text" name="email" placeholder="email" />
-		<input type="submit" value="Update" />
+		<input type="submit" value="Update" /><p>${updateMsg3}</p>
 	</form>
 	
 		<form action="updatePassword" method="POST">
 		<input type ="password" name="password" placeholder="password" />
-		<input type="submit" value="Update" />
+		<input type="submit" value="Update" /><p>${updateMsg4}</p>
 	</form>
 </body>
 </html>
