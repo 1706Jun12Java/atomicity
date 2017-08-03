@@ -15,7 +15,7 @@ public class UpdateUserInfo {
 	private final String UPDATE_MSG = "(Updated)";
 	private final String VIEW_NAME = "update-user-info"; // After clicking an update button
 	private final String DONE_VIEW_NAME = ""; // After clicking the 'done' button
-	
+
 	@RequestMapping("/updateFirstname")
 	public String updateFirstname(HttpServletRequest req, Model model) {
 		// Get current user
@@ -96,8 +96,7 @@ public class UpdateUserInfo {
 			return "login";			
 		}
 		return VIEW_NAME;
-	}
-	
+	}	
 	
 	// HELPER METHOD
 	public boolean isUserSignedIn(User user) {
