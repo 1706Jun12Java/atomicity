@@ -9,4 +9,6 @@ public interface PostDAO {
 	public List<Post> getAllPosts();
 
 	public void push(Post post);
+
+	List<Post> getAllByTopicId(int id);
 }

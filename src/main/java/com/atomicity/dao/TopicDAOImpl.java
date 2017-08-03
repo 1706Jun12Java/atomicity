@@ -30,6 +30,12 @@ public class TopicDAOImpl implements TopicDAO {
 	}
 
 	@Override
+	public Topic getTopicsById(int id) {
+		Session sess = HibernateUtil.getSession();
+		return (Topic) sess.get(Topic.class, id);
+	}
+
+	@Override
 	public List<Topic> getTopicsByCategory(String category) {
 		Session sess = HibernateUtil.getSession();
 		Query query = sess.getNamedQuery("getAllTopicsByCategory");
