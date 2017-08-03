@@ -32,8 +32,10 @@ public class LoginController {
 				HttpSession session = req.getSession();
 				session.setAttribute("user", user);
 				// we go to the site
+
 				if (user.getRole().equals(User.ADMIN_ROLE)) {
-					return "";
+					model.addAttribute("allUsers", new UserDAOImpl().getAllUser());
+					return "admin-view-users";
 				} else {
 					return "account";
 				}

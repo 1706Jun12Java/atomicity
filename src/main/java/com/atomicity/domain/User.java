@@ -10,7 +10,6 @@ import javax.persistence.*;
 public class User {
 	public static final String ADMIN_ROLE = "admin";
 	public static final String USER_ROLE = "user";
-
 	public User(String username, String email, String password, String firstName, String lastName) {
 		super();
 		this.username = username;
@@ -20,6 +19,7 @@ public class User {
 		this.lastName = lastName;
 		this.role = this.USER_ROLE;
 		this.blocked = false;
+		blockedStr = blocked ? "blocked" : "not blocked";
 	}
 
 	public User(String username, String email, String password, String firstName, String lastName, boolean blocked) {
@@ -31,6 +31,7 @@ public class User {
 		this.lastName = lastName;
 		this.blocked = blocked;
 		this.role = this.USER_ROLE;
+		blockedStr = blocked ? "blocked" : "not blocked";
 	}
 
 	public User(String username, String role, String email, String password, String firstName, String lastName,
@@ -43,6 +44,7 @@ public class User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.blocked = blocked;
+		blockedStr = blocked ? "blocked" : "not blocked";
 	}
 
 	public User() {
@@ -64,6 +66,12 @@ public class User {
 	private String lastName;
 	@Column(name = "BLOCKED")
 	private boolean blocked;
+	
+	private String blockedStr; // Needed for JSP purposes (admin-view-users.jsp)
+
+	public String getBlockedStr() {
+		return blockedStr;
+	}
 
 	public String getUsername() {
 		return username;
@@ -79,6 +87,10 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public void setBlockedStr(String blockedStr) {
+		this.blockedStr = blockedStr;
 	}
 
 	public String getEmail() {
