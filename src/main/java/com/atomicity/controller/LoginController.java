@@ -26,12 +26,18 @@ public class LoginController {
 			// Check to see if the username exists
 			User user = dao.getUserByName(username);
 			if (user.getPassword().equals(password)) {
+
 				// Password matches, so we are going to want to
 				// save the username
 				HttpSession session = req.getSession();
 				session.setAttribute("user", user);
 				// we go to the site
-				return "update-user-info";
+
+				if (user.getRole().equals(User.ADMIN_ROLE)) {
+					return "admin-view-users.jsp";
+				} else {
+					return "account";
+				}
 			} else {
 				// Password is incorrect so we go back with the message
 				model.addAttribute("error", "Password is incorrect");
