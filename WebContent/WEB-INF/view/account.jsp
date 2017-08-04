@@ -34,7 +34,7 @@
 			</div>
 		</nav>			
 	</header>
-	<h1>Categories</h1>
+	<div class=""><h1>Categories</h1></div>
 	<table>
 		<tr>
 			<td><a href="/Atomicity/MISC/topics">MISC</a></td>
