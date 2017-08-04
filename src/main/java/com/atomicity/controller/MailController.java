@@ -24,10 +24,10 @@ public class MailController {
 		User user = (User) sess.getAttribute("user");
 		List<Mail> mail = dao.getMailByUsername(user.getUsername());
 		System.out.println(mail);
-		model.addAttribute("mail",mail);
+		model.addAttribute("mail", mail);
 		return "mailbox";
 	}
-	
+
 	@RequestMapping("/composeMail")
 	public String goToSendMail() {
 		return "sendMail";

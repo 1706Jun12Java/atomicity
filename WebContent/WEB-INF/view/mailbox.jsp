@@ -18,13 +18,20 @@
 				<td><p>Send Date</p></td>
 			</tr>
 		</thead>
-		<c:forEach items="${mail}" var="mail">
-			<tr>
-				<td><c:out value="${mail.title}" /></td>
-				<td><c:out value="${mail.sender}" /></td>
-				<td><c:out value="${mail.dateSubmitted}" /></td>
-			</tr>
-		</c:forEach>
+		<tbody>
+			<c:forEach items="${mail}" var="mail">
+				<tr>
+					<td><c:out value="${mail.title}" /></td>
+					<td><c:out value="${mail.sender}" /></td>
+					<td><c:out value="${mail.dateSubmitted}" /></td>
+				</tr>
+				<tr>
+					<td colspan="3"><c:out value="${mail.text}" /></td>
+				</tr>
+
+
+			</c:forEach>
+		</tbody>
 	</table>
 </body>
 </html>
