@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>${category}Section</title>
+<title>${category} Section</title>
 </head>
 <body>
 	<table>
@@ -17,7 +17,7 @@
 				<td><c:out value="${top.dateSubmitted}" /></td>
 			</tr>
 		</c:forEach>
-
 	</table>
+	<a href="#" onclick="history.go(-1)">Go Back</a>
 </body>
 </html>

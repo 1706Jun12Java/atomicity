@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.atomicity.dao.PostDAO;
+import com.atomicity.dao.PostDAOImpl;
 import com.atomicity.dao.TopicDAO;
 import com.atomicity.dao.TopicDAOImpl;
 import com.atomicity.domain.Topic;
@@ -36,8 +38,12 @@ public class ForumController {
 
 	@RequestMapping(value = "/Topic/{id}/{title}", method = RequestMethod.GET)
 	public String getPosts(@PathVariable("id") int id, @PathVariable("title") String title, Model model) {
+		PostDAO pdao = new PostDAOImpl();
+		TopicDAO tdao = new TopicDAOImpl();
+		model.addAttribute("firstPost", tdao.getTopicsById(id).getFirstPost());
 		model.addAttribute("title", title);
-		model.addAttribute("id", id);
+		model.addAttribute("topicID", id);
+		model.addAttribute("posts", pdao.getAllByTopicId(id));
 		return "posts";
 	}
 

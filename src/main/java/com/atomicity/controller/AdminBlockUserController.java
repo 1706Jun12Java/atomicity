@@ -17,7 +17,7 @@ public class AdminBlockUserController {
 	private final String USER_BLOCKED_MSG = "*User Blocked";
 	private final String USER_UNBLOCKED_MSG = "*User UnBlocked";
 	
-	
+	 
 	@RequestMapping("block")
 	public String blockUser(HttpServletRequest req, Model model) {
 		Debug.printMessage(this.getClass(), "blockUser()", "Invoked");
