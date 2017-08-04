@@ -34,14 +34,21 @@
 			</div>
 		</nav>			
 	</header>
-	<div class=""><h1>Categories</h1></div>
-	<table>
-		<tr>
-			<td><a href="/Atomicity/MISC/topics">MISC</a></td>
-			<td><p>Miscellaneous Section</p></td>
-		</tr>
-	</table>
-	<a href="/Atomicity/addTopicPage">Create A New Topic</a>
-	<a href="/Atomicity/logout">Logout</a>
+	
+	<div class="container">
+		<div class="row">
+			<h1>Categories</h1>
+			<a href="/Atomicity/addTopicPage">Create A New Topic</a>
+		</div>
+		<div class="row">			
+			<a href="/Atomicity/MISC/topics">MISC</a>
+			<p>Miscellaneous Section</p>
+			
+			<a href="/Atomicity/logout">Logout</a>
+		</div>
+	</div>	
+	
+	
+
 </body>
 </html>
