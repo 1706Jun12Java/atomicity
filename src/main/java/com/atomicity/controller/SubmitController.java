@@ -64,6 +64,10 @@ public class SubmitController {
 		String receiver = (String) req.getParameter("receiver");
 		String text = (String) req.getParameter("text");
 		String title = (String) req.getParameter("title");
+		if (user.getUsername().equals(receiver)) {
+			model.addAttribute("error", "You can't send yourself mail");
+			return new ModelAndView("sendMail");
+		}
 		if (text.isEmpty()) {
 			model.addAttribute("error", "There is no text");
 			return new ModelAndView("sendMail");
