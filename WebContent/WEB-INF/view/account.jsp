@@ -2,11 +2,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html ng-app="timeApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Account | Atomicity</title>
+<script type="text/javascript"
+	src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
+<script type="text/javascript" src="resources/javascript/time.js"></script>
 <link rel="stylesheet" href="resources/css/normalize.css" />
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
 	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
@@ -26,13 +30,11 @@
 		</a>
 		<div class="navbar-nav">
 			<a class="nav-item nav-link active" href="/Atomicity/">Community</a>
-
 			<a class="nav-item nav-link" href="">Profile</a> <a
-				class="nav-item nav-link" href="/Atomicity/mailbox">Mailbox</a> <a
-				class="nav-item nav-link" href="/Atomicity/logout">Logout</a>
-
-
-
+				class="nav-item nav-link" href="/Atomicity/addTopicPage">Submit
+				a Topic</a> <a class="nav-item nav-link" href="/Atomicity/mailbox">Mailbox</a>
+			<a class="nav-item nav-link" href="/Atomicity/update">Update Info</a>
+			<a class="nav-item nav-link" href="/Atomicity/logout">Logout</a>
 		</div>
 	</div>
 	</nav> </header>

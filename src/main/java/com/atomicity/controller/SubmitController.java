@@ -34,7 +34,7 @@ public class SubmitController {
 	}
 
 	@RequestMapping(value = "/submitTopic", method = RequestMethod.POST)
-	public String addTopic(HttpServletRequest req) {
+	public ModelAndView addTopic(HttpServletRequest req) {
 		HttpSession sess = req.getSession();
 		String title = req.getParameter("title");
 		String category = req.getParameter("category");
@@ -42,7 +42,7 @@ public class SubmitController {
 		TopicDAO dao = new TopicDAOImpl();
 		User user = (User) sess.getAttribute("user");
 		dao.push(new Topic(user.getUsername(), category, Calendar.getInstance().getTime(), title, text));
-		return "testing";
+		return new ModelAndView("redirect:/" + category + "/topics");
 	}
 
 	@RequestMapping(value = "/submitPost", method = RequestMethod.POST)

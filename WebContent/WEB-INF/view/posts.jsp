@@ -29,7 +29,7 @@
 			type="hidden" name="title" value=${title} >
 		<textarea name="text" rows="4" cols="10" maxlength="1000"
 			placeholder="Say something nice" form="postForm"></textarea>
-		<br> <br> <input type="submit" value="Submit New Topic" />
+		<br> <br> <input type="submit" value="Submit" />
 	</form>
 	<a href="#" onclick="history.go(-1)">Go Back</a>
 </body>

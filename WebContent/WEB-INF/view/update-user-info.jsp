@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Update Your Information</title>
 </head>
 <body>
 	<form action="updateFirstname" method="POST">
@@ -26,5 +26,6 @@
 		<input type ="password" name="password" placeholder="password" />
 		<input type="submit" value="Update" /><p>${updateMsg4}</p>
 	</form>
+	<a href="/Atomicity/doneUpdate">Done</a>
 </body>
 </html>
