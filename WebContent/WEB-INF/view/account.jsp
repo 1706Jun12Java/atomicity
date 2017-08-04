@@ -25,9 +25,12 @@
 				<div class="navbar-nav">
 						<a class="nav-item nav-link active" href="/Atomicity/">Community</a>
 						
-						<a class="nav-item nav-link" href="">Profile</a>			
+						<a class="nav-item nav-link" href="">Profile</a>
+						
+						<a class="nav-item nav-link" href="/Atomicity/mailbox">Mailbox</a>			
 						
 						<a class="nav-item nav-link" href="/Atomicity/logout">Logout</a>
+						
 	
 						
 				</div>
@@ -37,15 +40,18 @@
 	
 	<div class="container">
 		<div class="row">
-			<h1>Categories</h1>
-			<a href="/Atomicity/addTopicPage">Create A New Topic</a>
-			<a href="/Atomicity/mailbox">MailBox</a>
+			<h1 class="category-header">Categories</h1>
 		</div>
-		<div class="row">			
-			<a href="/Atomicity/MISC/topics">MISC</a>
-			<p>Miscellaneous Section</p>
+	
+		<div class="row">
+<!-- 			<div class="category-action-row">
+				<a href="/Atomicity/addTopicPage">Create A New Topic</a>
+			</div> -->
 			
-			<a href="/Atomicity/logout">Logout</a>
+		</div>
+		<div class="row category">			
+			<div class="category-title"><a href="/Atomicity/MISC/topics">MISC</a></div>
+			<div class="category-info"><p>Miscellaneous Section</p></div>
 		</div>
 	</div>	
 </body>
