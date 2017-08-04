@@ -39,6 +39,7 @@
 		<div class="row">
 			<h1>Categories</h1>
 			<a href="/Atomicity/addTopicPage">Create A New Topic</a>
+			<a href="/Atomicity/mailbox">MailBox</a>
 		</div>
 		<div class="row">			
 			<a href="/Atomicity/MISC/topics">MISC</a>
@@ -47,8 +48,5 @@
 			<a href="/Atomicity/logout">Logout</a>
 		</div>
 	</div>	
-	
-	
-
 </body>
 </html>

@@ -16,6 +16,7 @@
 		<mapping class="com.atomicity.domain.ProfilePic" />
 		<mapping class="com.atomicity.domain.Topic" />
 		<mapping class="com.atomicity.domain.User" />
+		<mapping class="com.atomicity.domain.Mail" />
 
 	</session-factory>
 </hibernate-configuration>
