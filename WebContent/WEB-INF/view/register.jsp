@@ -78,7 +78,7 @@
 		      	</div>
 		      	<div class="form-group">
 		      		<label class="form-control-label" for="cpassword">Confirm Password</label>
-		      		<input class="form-control" type="cpassword" name="cpassword" id="cpassword"/>
+		      		<input class="form-control" type="password" name="cpassword" id="cpassword"/>
 		      	</div>
 	    	</fieldset>
 	    	<button class="btn btn-primary" type="submit">Register</button>
