@@ -7,7 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Account | Atomicity</title>
 <link rel="stylesheet" href="resources/css/normalize.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+	crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/mystyle.css" />
 </head>
 <body>
@@ -50,8 +53,20 @@
 			
 		</div>
 		<div class="row category">			
-			<div class="category-title"><a href="/Atomicity/MISC/topics">MISC</a></div>
-			<div class="category-info"><p>Miscellaneous Section</p></div>
+			<div class="category-title"><<a href="/Atomicity/general/topics">General</a></div>
+			<div class="category-info"><p>General Section</p></div>
+		</div>
+    <div class="row category">			
+			<div class="category-title"><a href="/Atomicity/java/topics">JAVA</a></div>
+			<div class="category-info"><p>Java Section</p></div>
+		</div>
+    <div class="row category">			
+			<div class="category-title"><a href="/Atomicity/sql/topics">SQL</a></div>
+			<div class="category-info"><p>SQL Section</p></div>
+		</div>
+    <div class="row category">			
+			<div class="category-title"><a href="/Atomicity/web/topics">Web</a></div>
+			<div class="category-info"><p>HTML/CSS/Javascript Section</p></div>
 		</div>
 	</div>	
 </body>
