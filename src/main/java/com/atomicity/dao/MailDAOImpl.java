@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.atomicity.domain.Mail;
+import com.atomicity.util.Debug;
 import com.atomicity.util.HibernateUtil;
 
 public class MailDAOImpl implements MailDAO {
