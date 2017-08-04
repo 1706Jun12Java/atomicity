@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="resources/css/mystyle.css" />
 </head>
 <body>
+	<div class"bgAtom">
 	<header>
 		<!-- NAVIGATION BAR -->
 		<nav class="navbar bg-inverse navbar-inverse navbar-toggleable-sm">
@@ -18,7 +19,7 @@
 					<img id="logoImg" src="resources/img/atomlogobar.png" alt="atomicity logo" style="width:80px;">
 				</a>
 				<div class="navbar-nav">					
-						<a class="nav-item nav-link active" href="loginVerify">Sign in</a>
+						<a class="nav-item nav-link active" href="/Atomicity/">Sign in</a>
 	
 						<a class="nav-item nav-link" href="registerLink">Register</a>
 	
@@ -63,7 +64,7 @@
 	    </form>
 	  </div>
 	</div>
-	
+	</div>
 	
 	
 </body>
