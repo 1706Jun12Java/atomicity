@@ -10,7 +10,10 @@
 	<form id="topicForm" action="/Atomicity/submitTopic" method="post">
 		<input name="title" type="text" placeholder="Enter the Title " /> <br>
 		<select name="category" form="topicForm">
-			<option value="MISC">MISC</option>
+			<option value="general">General</option>
+			<option value="java">Java</option>
+			<option value="sql">SQL</option>
+			<option value="web">Web</option>
 		</select> <br>
 		<textarea name="text" rows="4" cols="10" maxlength="100"
 			form="topicForm"></textarea>
