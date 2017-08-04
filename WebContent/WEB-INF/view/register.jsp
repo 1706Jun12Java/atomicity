@@ -1,3 +1,4 @@
+<%@page import="com.atomicity.domain.User"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -27,15 +28,8 @@
 			</div>
 		</nav>			
 	</header>
-	<!-- ERROR MESSAGES -->
-	<h5 class="fieldErrorMessage">${firstnameMSG}</h5>
-	<h5 class="fieldErrorMessage">${lastnameMSG}</h5>
-	<h5 class="fieldErrorMessage">${emailMSG}</h5>
-	<h5 class="fieldErrorMessage">${usernameMSG}</h5>
-	<h5 class="fieldErrorMessage">${passwordMSG}</h5>
-	<h5 class="fieldErrorMessage">${cpasswordMSG}</h5>
-	<h5 class="fieldErrorMessage">${cpasswordMMSG}</h5>
 	
+		
 <!-- 	<form action="register" method="post">
 		<input type="text" name="firstname" placeholder="Firstname" /><br>
 		
@@ -51,33 +45,51 @@
 		
 		<input type="submit" value="register" /><br>
 	</form> -->
-	
+	<%
+		String firstnameR = (String) session.getAttribute("firstnameR");
+		String lastnameR = (String) session.getAttribute("lastnameR");
+		String emailR = (String) session.getAttribute("emailR");
+		String usernameR = (String) session.getAttribute("usernameR");
+		
+		firstnameR = (firstnameR == null) ? "" : firstnameR;
+		lastnameR = (lastnameR == null) ? "" : lastnameR;
+		emailR = (emailR == null) ? "" : emailR;
+		usernameR = (usernameR == null) ? "" : usernameR;
+		
+	%>
 	<div class="login-page">
 	  <div class="form">
 	    <form class="login-form" action="register" method="POST" >
 	    	<fieldset class="form-group">
-	    		<div class="form-group">
+	    		<div class="form-group ${firstnameDIV}">
 		      		<label class="form-control-label" for="firstname">Firstname</label>
-		      		<input class="form-control" type="text" name="firstname" id="firstname"/>
+		      		<small class="form-text text-danger">${firstnameMSG}</small>
+		      		<input class="form-control" type="text" name="firstname" id="firstname" value="<%=firstnameR%>"/>
 		      	</div>
-		      	<div class="form-group">
+		      	<div class="form-group ${lastnameDIV}">
 		      		<label class="form-control-label" for="lastname">Lastname</label>
-		      		<input class="form-control" type="text" name="lastname" id="lastname"/>
+		      		<small class="form-text text-danger">${lastnameMSG}</small>
+		      		<input class="form-control" type="text" name="lastname" id="lastname" value="<%=lastnameR%>"/>
 		      	</div>
-		      	<div class="form-group">
+		      	<div class="form-group ${emailDIV}">
 		      		<label class="form-control-label" for="email">Email</label>
-		      		<input class="form-control" type="text" name="email" id="email"/>
+		      		<small class="form-text text-danger">${emailMSG}</small>
+		      		<input class="form-control" type="text" name="email" id="email" value="<%=emailR%>"/>
 		      	</div>
-		      	<div class="form-group">
+		      	<div class="form-group ${usernameDIV}">
 		      		<label class="form-control-label" for="username">Username</label>
-		      		<input class="form-control" type="text" name="username" id="username"/>
+		      		<small class="form-text text-danger">${usernameMSG}</small>
+		      		<input class="form-control" type="text" name="username" id="username" value="<%=usernameR%>"/>
 		      	</div>
-		      	<div class="form-group">
+		      	<div class="form-group ${passwordDIV}">
 		      		<label class="form-control-label" for="password">Password</label>
+		      		<small class="form-text text-danger">${passwordMSG}</small>
 		      		<input class="form-control" type="password" name="password" id="password"/>
 		      	</div>
-		      	<div class="form-group">
+		      	<div class="form-group ${cpasswordDIV}">
 		      		<label class="form-control-label" for="cpassword">Confirm Password</label>
+		      		<small class="form-text text-danger">${cpasswordMSG}</small>
+		      		<small class="form-text text-danger">${cpasswordMMSG}</small>
 		      		<input class="form-control" type="password" name="cpassword" id="cpassword"/>
 		      	</div>
 	    	</fieldset>
