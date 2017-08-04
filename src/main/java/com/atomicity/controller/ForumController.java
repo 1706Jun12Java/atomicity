@@ -24,7 +24,7 @@ public class ForumController {
 	public String getTopics(HttpServletRequest req, @PathVariable("category") String category, Model model) {
 		HttpSession sess = req.getSession();
 		sess.setAttribute("category", category);
-		model.addAttribute("category", "MISC");
+		model.addAttribute("category", category);
 		TopicDAO dao = new TopicDAOImpl();
 		List<Topic> topics = dao.getTopicsByCategory(category);
 		for (Topic t : topics) {

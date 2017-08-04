@@ -14,60 +14,72 @@
 <link rel="stylesheet" href="resources/css/mystyle.css" />
 </head>
 <body>
-<%
-	User user = (User) session.getAttribute("user");
-%>
-	<header>
-		<!-- NAVIGATION BAR -->
-		<nav class="navbar bg-inverse navbar-inverse navbar-toggleable-sm">
-			<div class="container">
-				<a class="navbar-brand" href="/Atomicity/">
-					<img id="logoImg" src="resources/img/atomlogobar.png" alt="atomicity logo" style="width:80px;">
-					<%=user.getUsername()%>
-				</a>
-				<div class="navbar-nav">
-						<a class="nav-item nav-link active" href="/Atomicity/">Community</a>
-						
-						<a class="nav-item nav-link" href="">Profile</a>
-						
-						<a class="nav-item nav-link" href="/Atomicity/mailbox">Mailbox</a>			
-						
-						<a class="nav-item nav-link" href="/Atomicity/logout">Logout</a>
-						
-	
-						
-				</div>
-			</div>
-		</nav>			
-	</header>
-	
+	<%
+		User user = (User) session.getAttribute("user");
+	%>
+	<header> <!-- NAVIGATION BAR --> <nav
+		class="navbar bg-inverse navbar-inverse navbar-toggleable-sm">
+	<div class="container">
+		<a class="navbar-brand" href="/Atomicity/"> <img id="logoImg"
+			src="resources/img/atomlogobar.png" alt="atomicity logo"
+			style="width: 80px;"> <%=user.getUsername()%>
+		</a>
+		<div class="navbar-nav">
+			<a class="nav-item nav-link active" href="/Atomicity/">Community</a>
+
+			<a class="nav-item nav-link" href="">Profile</a> <a
+				class="nav-item nav-link" href="/Atomicity/mailbox">Mailbox</a> <a
+				class="nav-item nav-link" href="/Atomicity/logout">Logout</a>
+
+
+
+		</div>
+	</div>
+	</nav> </header>
+
 	<div class="container">
 		<div class="row">
 			<h1 class="category-header">Categories</h1>
 		</div>
-	
+
 		<div class="row">
-<!-- 			<div class="category-action-row">
+			<!-- 			<div class="category-action-row">
 				<a href="/Atomicity/addTopicPage">Create A New Topic</a>
 			</div> -->
-			
+
 		</div>
-		<div class="row category">			
-			<div class="category-title"><<a href="/Atomicity/general/topics">General</a></div>
-			<div class="category-info"><p>General Section</p></div>
+		<div class="row category">
+			<div class="category-title">
+				<a href="/Atomicity/general/topics">General</a>
+			</div>
+			<div class="category-info">
+				<p>General Section</p>
+			</div>
 		</div>
-    <div class="row category">			
-			<div class="category-title"><a href="/Atomicity/java/topics">JAVA</a></div>
-			<div class="category-info"><p>Java Section</p></div>
+		<div class="row category">
+			<div class="category-title">
+				<a href="/Atomicity/java/topics">JAVA</a>
+			</div>
+			<div class="category-info">
+				<p>Java Section</p>
+			</div>
 		</div>
-    <div class="row category">			
-			<div class="category-title"><a href="/Atomicity/sql/topics">SQL</a></div>
-			<div class="category-info"><p>SQL Section</p></div>
+		<div class="row category">
+			<div class="category-title">
+				<a href="/Atomicity/sql/topics">SQL</a>
+			</div>
+			<div class="category-info">
+				<p>SQL Section</p>
+			</div>
 		</div>
-    <div class="row category">			
-			<div class="category-title"><a href="/Atomicity/web/topics">Web</a></div>
-			<div class="category-info"><p>HTML/CSS/Javascript Section</p></div>
+		<div class="row category">
+			<div class="category-title">
+				<a href="/Atomicity/web/topics">Web</a>
+			</div>
+			<div class="category-info">
+				<p>HTML/CSS/Javascript Section</p>
+			</div>
 		</div>
-	</div>	
+	</div>
 </body>
 </html>

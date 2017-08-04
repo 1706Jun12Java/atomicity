@@ -3,13 +3,11 @@ package com.atomicity.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.atomicity.customExceptions.InvalidNameException;
-import com.atomicity.customExceptions.UserNameDoesNotExistsException;
 import com.atomicity.customExceptions.UserNameTakenException;
 import com.atomicity.dao.UserDAOImpl;
 import com.atomicity.domain.User;
@@ -141,7 +139,7 @@ public class RegisterController {
 	public String goToLoginPage() {
 		Debug.printMessage(this.getClass(), "goToLoginPage()", "Invoked");
 		Debug.printMessage(this.getClass(), "goToLoginPage()", "ENDED");
-		return "login";
+		return "index";
 		
 	}
 	
