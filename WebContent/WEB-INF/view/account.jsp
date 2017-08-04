@@ -42,6 +42,6 @@
 		</tr>
 	</table>
 	<a href="/Atomicity/addTopicPage">Create A New Topic</a>
-	<a href="/Atomicity/logout">Logout</a>
+	<a href="/Atomicity/mailbox">MailBox</a>
 </body>
 </html>
