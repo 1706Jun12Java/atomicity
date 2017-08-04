@@ -10,26 +10,18 @@ import com.atomicity.util.Debug;
 
 @Controller
 public class HomeController {
-	
+
 	@RequestMapping("/")
 	public String showPage(HttpSession session) {
 		Debug.printMessage(this.getClass(), "showPage()", "Invoked");
-		
 		User user = (User) session.getAttribute("user");
-		if(user != null) {
-			if(user.getRole().equals(User.ADMIN_ROLE)) {
+		if (user != null) {
+			if (user.getRole().equals(User.ADMIN_ROLE)) {
 				return ""; // returns to admin
-			}
-			else {
+			} else {
 				return "account";
 			}
 		}
-		
 		return "index"; // returns to index if its not logged in
-	}
-	
-	@RequestMapping("/registerLink")
-	public String showRegisterPage() {
-		return "register";
 	}
 }

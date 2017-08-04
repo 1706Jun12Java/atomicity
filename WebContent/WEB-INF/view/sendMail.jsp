@@ -15,6 +15,6 @@
 			placeholder="Say something nice" form="mailForm"></textarea>
 		<br> <br> <input type="submit" value="Submit New Topic" />
 	</form>
-	<a href="#" onclick="history.go(-1)">Go Back</a>
+	<a href="/Atomicity/addTopicPage">Go Back</a>
 </body>
 </html>

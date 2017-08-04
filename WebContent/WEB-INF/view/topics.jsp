@@ -18,6 +18,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<a href="#" onclick="history.go(-1)">Go Back</a>
+	<a href="/Atomicity/account">Go Back</a>
 </body>
 </html>

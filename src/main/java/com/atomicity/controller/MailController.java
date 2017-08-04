@@ -27,9 +27,4 @@ public class MailController {
 		model.addAttribute("mail", mail);
 		return "mailbox";
 	}
-
-	@RequestMapping("/composeMail")
-	public String goToSendMail() {
-		return "sendMail";
-	}
 }

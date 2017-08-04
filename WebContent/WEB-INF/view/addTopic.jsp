@@ -19,6 +19,6 @@
 			form="topicForm"></textarea>
 		<br> <br> <input type="submit" value="Submit New Topic" />
 	</form>
-	<a href="#" onclick="history.go(-1)">Go Back</a>
+	<a href="/Atomicity/account">Go Back</a>
 </body>
 </html>

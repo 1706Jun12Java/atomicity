@@ -28,10 +28,9 @@
 				<tr>
 					<td colspan="3"><c:out value="${mail.text}" /></td>
 				</tr>
-
-
 			</c:forEach>
 		</tbody>
 	</table>
+	<a href="/Atomicity/account">Go Back</a>
 </body>
 </html>

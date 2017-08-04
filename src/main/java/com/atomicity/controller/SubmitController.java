@@ -28,11 +28,6 @@ import com.atomicity.domain.User;
 @Controller
 public class SubmitController {
 
-	@RequestMapping("/addTopicPage")
-	public String toAddTopic() {
-		return "addTopic";
-	}
-
 	@RequestMapping(value = "/submitTopic", method = RequestMethod.POST)
 	public ModelAndView addTopic(HttpServletRequest req) {
 		HttpSession sess = req.getSession();
