@@ -8,6 +8,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "A_USERS")
 public class User {
+	public static final String ADMIN_ROLE = "admin";
+	public static final String USER_ROLE = "user";
 
 	public User(String username, String email, String password, String firstName, String lastName) {
 		super();
@@ -16,11 +18,9 @@ public class User {
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.role = this.USER_ROLE;
 		this.blocked = false;
-	}
-
-	public User() {
-		super();
+		blockedStr = blocked ? "blocked" : "not blocked";
 	}
 
 	public User(String username, String email, String password, String firstName, String lastName, boolean blocked) {
@@ -31,11 +31,34 @@ public class User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.blocked = blocked;
+		this.role = this.USER_ROLE;
+		blockedStr = blocked ? "blocked" : "not blocked";
+	}
+
+	public User(String username, String role, String email, String password, String firstName, String lastName,
+			boolean blocked) {
+		super();
+		this.username = username;
+		this.role = role;
+
+		this.email = email;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.blocked = blocked;
+		blockedStr = blocked ? "blocked" : "not blocked";
+	}
+
+	public User() {
+		super();
 	}
 
 	@Id
 	@Column(name = "U_USERNAME")
 	private String username;
+	@Column(name = "U_ROLE")
+	private String role;
+
 	@Column(name = "U_EMAIL")
 	private String email;
 	@Column(name = "U_PASSWORD")
@@ -46,65 +69,78 @@ public class User {
 	private String lastName;
 	@Column(name = "BLOCKED")
 	private boolean blocked;
+	
+	private String blockedStr; // Needed for JSP purposes (admin-view-users.jsp)
+
+	public String getBlockedStr() {
+		return blockedStr;
+	}
+
 
 	public String getUsername() {
 		return username;
 	}
 
-	public User setUsername(String username) {
+	public void setUsername(String username) {
 		this.username = username;
-		return this;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getRole() {
+		return role;
 	}
 
-	public User setFirstName(String firstName) {
-		this.firstName = firstName;
-		return this;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
-	public String getLastName() {
-		return lastName;
-	}
-
-	public User setLastName(String lastName) {
-		this.lastName = lastName;
-		return this;
-	}
-
-	public boolean isBlocked() {
-		return blocked;
-	}
-
-	public User setBlocked(boolean blocked) {
-		this.blocked = blocked;
-		return this;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public User setPassword(String password) {
-		this.password = password;
-		return this;
+	public void setBlockedStr(String blockedStr) {
+		this.blockedStr = blockedStr;
 	}
 
 	public String getEmail() {
 		return email;
 	}
 
-	public User setEmail(String email) {
+	public void setEmail(String email) {
 		this.email = email;
-		return this;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public boolean isBlocked() {
+		return blocked;
+	}
+
+	public void setBlocked(boolean blocked) {
+		this.blocked = blocked;
 	}
 
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", email=" + email + ", password=" + password + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", blocked=" + blocked + "]";
+		return "User [username=" + username + ", role=" + role + ", email=" + email + ", password=" + password
+				+ ", firstName=" + firstName + ", lastName=" + lastName + ", blocked=" + blocked + "]";
 	}
 
 }

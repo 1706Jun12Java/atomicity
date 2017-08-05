@@ -32,6 +32,7 @@ public class ProfilePicDAOImpl implements ProfilePicDAO {
 	public ProfilePic getPicByName(String username) {
 		Session sess = HibernateUtil.getSession();
 		ProfilePic pic = (ProfilePic) sess.get(ProfilePic.class, username);
+		sess.close();
 		return pic;
 
 	}

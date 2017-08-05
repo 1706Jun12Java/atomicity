@@ -3,11 +3,36 @@ package com.atomicity.domain;
 import java.util.Date;
 import javax.persistence.*;
 
-@NamedQueries({ @NamedQuery(name = "getAllTopics", query = "FROM Topic") })
+@NamedQueries({ @NamedQuery(name = "getAllTopics", query = "FROM Topic"),
+		@NamedQuery(name = "getAllTopicsByCategory", query = "FROM Topic WHERE category = :var ORDER BY dateSubmitted DESC") })
+
 
 @Entity
 @Table(name = "A_TOPICS")
 public class Topic {
+
+	public Topic(String author, String category, Date dateSubmitted, String title, String firstPost) {
+		super();
+		this.author = author;
+		this.category = category;
+		this.dateSubmitted = dateSubmitted;
+		this.title = title;
+		this.firstPost = firstPost;
+	}
+
+	public Topic(int id, String author, String category, Date dateSubmitted, String title, String firstPost) {
+		super();
+		this.id = id;
+		this.author = author;
+		this.category = category;
+		this.dateSubmitted = dateSubmitted;
+		this.title = title;
+		this.firstPost = firstPost;
+	}
+
+	public Topic() {
+		super();
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "topicPicsSequence")
@@ -24,41 +49,76 @@ public class Topic {
 	@Column(name = "T_SUBMITTED")
 	private Date dateSubmitted;
 
+	@Column(name = "T_TITLE")
+	private String title;
+
+	@Column(name = "T_FIRST_POST")
+	private String firstPost;
+
+	private String url;
+
 	public int getId() {
 		return id;
 	}
 
-	public Topic setId(int id) {
+	public void setId(int id) {
 		this.id = id;
-		return this;
 	}
 
 	public String getAuthor() {
 		return author;
 	}
 
-	public Topic setAuthor(String author) {
+	public void setAuthor(String author) {
 		this.author = author;
-		return this;
 	}
 
 	public String getCategory() {
 		return category;
 	}
 
-	public Topic setCategory(String category) {
+	public void setCategory(String category) {
 		this.category = category;
-		return this;
 	}
 
 	public Date getDateSubmitted() {
 		return dateSubmitted;
 	}
 
-	public Topic setDateSubmitted(Date dateSubmitted) {
+	public void setDateSubmitted(Date dateSubmitted) {
 		this.dateSubmitted = dateSubmitted;
-		return this;
-
 	}
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getFirstPost() {
+		return firstPost;
+	}
+
+	public void setFirstPost(String firstPost) {
+		this.firstPost = firstPost;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void generateURL() {
+		this.url = "";
+		this.url += "/Atomicity/Topic/";
+		this.url += this.getId() + "/";
+		this.url += this.getTitle().replaceAll(" ", "-");
+	}
+
+	@Override
+	public String toString() {
+		return "Topic [id=" + id + ", author=" + author + ", category=" + category + ", dateSubmitted=" + dateSubmitted
+				+ ", title=" + title + ", firstPost=" + firstPost + ", url=" + url + "]";
+	}
 }

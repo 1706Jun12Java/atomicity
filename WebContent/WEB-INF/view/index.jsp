@@ -5,25 +5,65 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Atomicity Home page</title>
-<link rel="stylesheet" href="css/normalize.css" />
-<link rel="stylesheet" href="css/mystyle.css" />
+<link rel="stylesheet" href="resources/css/normalize.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<link rel="stylesheet" href="resources/css/mystyle.css" />
 </head>
 <body>
-<div class="main-header-container">
-		<header>
-			<img id="logoImg" src="resources/img/atomicitylogo.png" alt="atomicity logo">
-			<h1>The forum that never dies</h1>
-			<nav>
-				<ul>
-					<li><a href="loginVerify">Sign in</a></li>
-
-					<li><a href="registerLink">Register</a></li>
-
-					<li><a href="">About Us</a></li>
-				</ul>
-			</nav>
-		</header>
+	<div class"bgAtom">
+	<header>
+		<!-- NAVIGATION BAR -->
+		<nav class="navbar bg-inverse navbar-inverse navbar-toggleable-sm">
+			<div class="container">
+				<a class="navbar-brand" href="/atomicity/index">
+					<img id="logoImg" src="resources/img/atomlogobar.png" alt="atomicity logo" style="width:80px;">
+				</a>
+				<div class="navbar-nav">					
+						<a class="nav-item nav-link active" href="/Atomicity/">Sign in</a>
+	
+						<a class="nav-item nav-link" href="registerLink">Register</a>
+	
+						<a class="nav-item nav-link disabled" href="">About Us</a>
+				</div>
+			</div>
+		</nav>			
+	</header>
+	
+<!-- 	<div>
+		<form action="login" method="POST">
+			<fieldset class="form-group">
+				<legend>Sign in</legend>
+				<div class="form-group">
+					<label class="form-control-label" for="username">Username</label>
+					<input class="form-control" type="text" name="username" id="username"/>
+				</div>
+				
+				<div class="form-group">
+					<label class="form-control-label" for="password">Password</label>
+					<input class="form-control" type="password" name="password" id="password"/>
+				</div>							
+			</fieldset>
+			<button class="btn btn-primary" type="submit">Sign in</button>
+		</form>
+	</div> -->
+  	<div class="login-page">
+	  <div class="form">
+	    <form class="login-form" action="login" method="POST" >
+	    	<fieldset class="form-group">
+	    		<div class="form-group">
+		      		<label class="form-control-label" for="username">Username</label>
+		      		<input class="form-control" type="text" name="username" id="username"/>
+		      	</div>
+		      	<div class="form-group">
+		      		<label class="form-control-label" for="password">Password</label>
+		      		<input class="form-control" type="password" name="password" id="password"/>
+		      	</div>
+		      	<button class="btn btn-primary" type="submit">login</button>
+		      	<p class="message"><a href="#">Forgot password?</a></p>
+	    	</fieldset>
+	    </form>
+	  </div>
 	</div>
-</body>
+	</div>
 </body>
 </html>

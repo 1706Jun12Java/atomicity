@@ -5,11 +5,9 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.springframework.transaction.annotation.Transactional;
 import com.atomicity.domain.Topic;
 import com.atomicity.util.HibernateUtil;
 
-@Transactional
 public class TopicDAOImpl implements TopicDAO {
 
 	@Override
@@ -22,7 +20,6 @@ public class TopicDAOImpl implements TopicDAO {
 	}
 
 	@Override
-	@Transactional
 	public void push(Topic topic) {
 		Session sess = HibernateUtil.getSession();
 		Transaction tx = sess.beginTransaction();
@@ -32,4 +29,21 @@ public class TopicDAOImpl implements TopicDAO {
 
 	}
 
+	@Override
+	public Topic getTopicsById(int id) {
+		Session sess = HibernateUtil.getSession();
+		Topic topic = (Topic) sess.get(Topic.class, id);
+		sess.close();
+		return topic;
+	}
+
+	@Override
+	public List<Topic> getTopicsByCategory(String category) {
+		Session sess = HibernateUtil.getSession();
+		Query query = sess.getNamedQuery("getAllTopicsByCategory");
+		query.setParameter("var", category);
+		List<Topic> topics = query.list();
+		sess.close();
+		return topics;
+	}
 }

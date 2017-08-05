@@ -4,11 +4,25 @@ import javax.persistence.*;
 import java.util.Date;
 
 @NamedQueries({ @NamedQuery(name = "getAllPosts", query = "FROM Post"),
-		@NamedQuery(name = "getPostByUsername", query = "FROM Post WHERE username = :var") })
+		@NamedQuery(name = "getPostByUsername", query = "FROM Post WHERE username = :var"),
+		@NamedQuery(name = "getAllByTopicId", query = "FROM Post WHERE topicId = :var ORDER BY dateSubmitted ASC") })
+
 
 @Entity
 @Table(name = "A_POSTS")
 public class Post {
+
+	public Post() {
+		super();
+	}
+
+	public Post(int topicId, String text, String username, Date dateSubmitted) {
+		super();
+		this.topicId = topicId;
+		this.text = text;
+		this.author = username;
+		this.dateSubmitted = dateSubmitted;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "postSequence")
@@ -23,7 +37,8 @@ public class Post {
 	private String text;
 
 	@Column(name = "PT_AUTHOR")
-	private String username;
+	private String author;
+
 
 	@Column(name = "PT_SUBMITTED")
 	private Date dateSubmitted;
@@ -55,13 +70,12 @@ public class Post {
 		return this;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getAuthor() {
+		return author;
 	}
 
-	public Post setUsername(String username) {
-		this.username = username;
-		return this;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 	public Date getDateSubmitted() {

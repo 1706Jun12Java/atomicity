@@ -20,6 +20,16 @@ public class PostDAOImpl implements PostDAO {
 	}
 
 	@Override
+	public List<Post> getAllByTopicId(int id) {
+		Session sess = HibernateUtil.getSession();
+		Query query = sess.getNamedQuery("getAllByTopicId");
+		query.setInteger("var", id);
+		List<Post> posts = query.list();
+		sess.close();
+		return posts;
+	}
+
+	@Override
 	public void push(Post post) {
 		Session sess = HibernateUtil.getSession();
 		Transaction tx = sess.beginTransaction();
