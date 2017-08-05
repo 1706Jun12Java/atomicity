@@ -7,6 +7,7 @@ import java.util.Date;
 		@NamedQuery(name = "getPostByUsername", query = "FROM Post WHERE username = :var"),
 		@NamedQuery(name = "getAllByTopicId", query = "FROM Post WHERE topicId = :var ORDER BY dateSubmitted ASC") })
 
+
 @Entity
 @Table(name = "A_POSTS")
 public class Post {
@@ -37,6 +38,7 @@ public class Post {
 
 	@Column(name = "PT_AUTHOR")
 	private String author;
+
 
 	@Column(name = "PT_SUBMITTED")
 	private Date dateSubmitted;

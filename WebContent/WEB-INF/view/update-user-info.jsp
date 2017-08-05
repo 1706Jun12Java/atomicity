@@ -15,6 +15,7 @@
 	<form action="updateLastname" method="POST">
 		<input type ="text" name="lastname" placeholder="lastname" />
 		<input type="submit" value="Update" /> <p>${updateMsg2}</p>
+
 	</form>
 	
 	<form action="updateEmail" method="POST">

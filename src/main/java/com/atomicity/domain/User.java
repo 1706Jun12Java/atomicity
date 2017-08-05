@@ -10,6 +10,7 @@ import javax.persistence.*;
 public class User {
 	public static final String ADMIN_ROLE = "admin";
 	public static final String USER_ROLE = "user";
+
 	public User(String username, String email, String password, String firstName, String lastName) {
 		super();
 		this.username = username;
@@ -39,6 +40,7 @@ public class User {
 		super();
 		this.username = username;
 		this.role = role;
+
 		this.email = email;
 		this.password = password;
 		this.firstName = firstName;
@@ -56,6 +58,7 @@ public class User {
 	private String username;
 	@Column(name = "U_ROLE")
 	private String role;
+
 	@Column(name = "U_EMAIL")
 	private String email;
 	@Column(name = "U_PASSWORD")
@@ -72,6 +75,7 @@ public class User {
 	public String getBlockedStr() {
 		return blockedStr;
 	}
+
 
 	public String getUsername() {
 		return username;

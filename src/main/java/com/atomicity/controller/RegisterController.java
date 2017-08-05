@@ -3,6 +3,7 @@ package com.atomicity.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import com.atomicity.customExceptions.UserNameTakenException;
 import com.atomicity.dao.UserDAOImpl;
 import com.atomicity.domain.User;
 import com.atomicity.util.Debug;
+
 
 @Controller
 public class RegisterController {
@@ -28,11 +30,10 @@ public class RegisterController {
 	private final String CPASSWORD_MISMATCH_MSG = "*Confirmation Password doesn't match password";
 	private final String DIV = "has-danger"; // bootstrap commands
 	
-	
-	
 	@RequestMapping("/register")
 	public String getRegisterForm(HttpServletRequest req, Model model) {
 	Debug.printMessage(this.getClass(), "getRegisterForm()", "Invoked");
+
 		// Get 
 		String firstname = req.getParameter("firstname");
 		String lastname = req.getParameter("lastname");
@@ -62,6 +63,7 @@ public class RegisterController {
 			model.addAttribute("emailMSG", EMAIL_BLANK_MSG);
 			model.addAttribute("emailDIV", DIV);
 			Debug.printErrorMessage(this.getClass(), "getRegisterForm()", EMAIL_BLANK_MSG);
+
 		}
 		else if(!email.contains("@")) {
 			allowToRegister = false;
@@ -95,6 +97,7 @@ public class RegisterController {
 			model.addAttribute("cpasswordMSG", CPASSWORD_BLANK_MSG);
 			model.addAttribute("cpasswordDIV", DIV);
 			Debug.printErrorMessage(this.getClass(), "getRegisterForm()", CPASSWORD_BLANK_MSG);
+
 		}
 		
 		if(!(cpassword.equals(password))) {
@@ -115,8 +118,6 @@ public class RegisterController {
 		if(allowToRegister) {
 			Debug.printMessage(this.getClass(), "getRegisterForm()", "User allowed to register");
 			User user = new User(username, email, password, firstname, lastname);
-			
-			
 			try {
 				new UserDAOImpl().push(user);
 			} catch (UserNameTakenException e) {
@@ -140,7 +141,6 @@ public class RegisterController {
 		Debug.printMessage(this.getClass(), "goToLoginPage()", "Invoked");
 		Debug.printMessage(this.getClass(), "goToLoginPage()", "ENDED");
 		return "index";
-		
 	}
 	
 	
@@ -156,5 +156,5 @@ public class RegisterController {
 		User user;
 		user = new UserDAOImpl().getUserByNameForRegister(username);
 		return (user!=null);
-	}	
+  }
 }
