@@ -21,6 +21,7 @@
 </head>
 <body>
 	<c:url value="/resources/img/atomlogobar.png" var="logoInBar" />
+	<c:url value="/resources/img/xsmall-profile-pic.png" var="tempPP" />
 
 	<%
 		User user = (User) session.getAttribute("user");
@@ -38,7 +39,6 @@
 					<a class="nav-item nav-link" href="/Atomicity/profile">Profile</a> 
 					<a class="nav-item nav-link" href="/Atomicity/addTopicPage">Submit a Topic</a>
 					<a class="nav-item nav-link" href="/Atomicity/mailbox">Mailbox</a>
-					<a class="nav-item nav-link" href="/Atomicity/update">Update Info</a>
 					<a class="nav-item nav-link" href="/Atomicity/logout">Logout</a>
 				</div>
 			</div>
@@ -54,6 +54,7 @@
 		<c:forEach items="${posts}" var="post">
 			<div class="row category row-post">
 				<div class ="row-post-title">
+					<img src="${tempPP}"/>
 					<c:out value="${post.author}" />
 				</div>
 				
