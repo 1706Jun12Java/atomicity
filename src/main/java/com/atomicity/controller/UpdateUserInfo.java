@@ -14,7 +14,7 @@ import com.atomicity.domain.User;
 public class UpdateUserInfo {
 	private final String UPDATE_MSG = "(Updated)";
 	private final String VIEW_NAME = "update-user-info"; // After clicking an update button
-	private final String DONE_VIEW_NAME = "account"; // After clicking the 'done' button
+	private final String DONE_VIEW_NAME = "profile"; // After clicking the 'done' button
 
 	@RequestMapping("/update")
 	public String goToUpdatePage() {
