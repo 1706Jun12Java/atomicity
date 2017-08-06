@@ -58,7 +58,7 @@
 			<tr>
 				<th class="text-left">Subject</th>
 				<th class="text-left">Sender</th>
-				<th c>Send Date</th>
+				<th class="text-left">Send Date</th>
 			</tr>
 		</thead>
 		<tbody class="table-hover">

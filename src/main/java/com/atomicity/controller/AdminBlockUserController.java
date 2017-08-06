@@ -36,6 +36,7 @@ public class AdminBlockUserController {
 		}
 		
 		Debug.printMessage(this.getClass(), "blockUser()", "ENDED");
+		model.addAttribute("allUsers", new UserDAOImpl().getAllUser());
 		return SAME_PAGE;
 	}
 	
@@ -57,6 +58,7 @@ public class AdminBlockUserController {
 		}
 		
 		Debug.printMessage(this.getClass(), "unBlockUser()", "ENDED");
+		model.addAttribute("allUsers", new UserDAOImpl().getAllUser());
 		return SAME_PAGE;
 	}
 }

@@ -17,7 +17,7 @@ public class HomeController {
 		User user = (User) session.getAttribute("user");
 		if (user != null) {
 			if (user.getRole().equals(User.ADMIN_ROLE)) {
-				return ""; // returns to admin
+				return "account"; // returns to admin
 			} else {
 				return "account";
 			}

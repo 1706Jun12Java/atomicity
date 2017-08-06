@@ -49,12 +49,26 @@
 			<h5 class="form-text"><b>Username: </b><%=user.getUsername()%></h5>
 			<h5 class="form-text"><b>Firstname: </b><%=user.getFirstName()%></h5>
 			<h5 class="form-text"><b>Lastname: </b><%=user.getLastName()%></h5>
-			<h5 class="form-text"><b>Email: </b><%=user.getEmail()%></h5>		
+			<h5 class="form-text"><b>Email: </b><%=user.getEmail()%></h5>
+			<h5 class="form-text"><b>Role: </b><%=user.getRole()%></h5>		
 		</div>
 		
 		<div class="form-group">
 			<a href="/Atomicity/update">Update user info</a>
 		</div>
+		
+		<%
+			String adminAccessLink ="";
+			String adminAccessLinkName = "";
+			if(user.getRole().equals(User.ADMIN_ROLE)) {
+				adminAccessLink = "/Atomicity/admin-view-users";
+				adminAccessLinkName = "Manage Users";
+			}
+		%>
+		<div class="form-group">
+			<a href="<%=adminAccessLink%>"><%=adminAccessLinkName %></a>
+		</div>
+		
 	</div>
 </body>
 </html>

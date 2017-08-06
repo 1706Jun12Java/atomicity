@@ -29,7 +29,7 @@
 				<%=user.getUsername()%>
 				</a>
 				<div class="navbar-nav">
-					<a class="nav-item nav-link" href="/Atomicity/">Community</a>
+					<a class="nav-item nav-link" href="/">Community</a>
 					<a class="nav-item nav-link active" href="/Atomicity/profile">Profile</a> 
 					<a class="nav-item nav-link" href="/Atomicity/addTopicPage">Submit a Topic</a>
 					<a class="nav-item nav-link" href="/Atomicity/mailbox">Mailbox</a>

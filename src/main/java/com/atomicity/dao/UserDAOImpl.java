@@ -103,6 +103,12 @@ public class UserDAOImpl implements UserDAO {
 		Session sess = HibernateUtil.getSession();
 		Transaction tx = sess.beginTransaction();
 		user.setBlocked(newVal);
+		if(newVal) {
+			user.setBlockedStr("blocked");
+		}
+		else {
+			user.setBlockedStr("not blocked");
+		}
 		sess.update(user);
 		tx.commit();
 		sess.close();
