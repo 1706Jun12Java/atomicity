@@ -6,6 +6,7 @@ import javax.persistence.*;
 @NamedQueries({ @NamedQuery(name = "getAllTopics", query = "FROM Topic"),
 		@NamedQuery(name = "getAllTopicsByCategory", query = "FROM Topic WHERE category = :var ORDER BY dateSubmitted DESC") })
 
+
 @Entity
 @Table(name = "A_TOPICS")
 public class Topic {

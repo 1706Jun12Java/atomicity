@@ -13,6 +13,4 @@ public interface TopicDAO {
 	public void push(Topic topics);
 
 	Topic getTopicsById(int id);
-
-	
 }

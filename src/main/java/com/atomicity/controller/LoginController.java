@@ -14,7 +14,7 @@ import com.atomicity.domain.User;
 @Controller
 public class LoginController {
 
-	@RequestMapping("/login")
+  @RequestMapping("/login")
 	public String checkLoginCredentials(HttpServletRequest req, Model model) {
 		// Get credentials
 		String username = req.getParameter("username");
@@ -46,7 +46,6 @@ public class LoginController {
 			}
 
 		} catch (UserNameDoesNotExistsException e) {
-			// username does not exists
 			model.addAttribute("error", "Username does not exists");
 			return "login";
 		}
@@ -58,5 +57,4 @@ public class LoginController {
 		session.invalidate();
 		return "index";
 	}
-
 }

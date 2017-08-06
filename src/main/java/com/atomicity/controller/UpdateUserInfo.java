@@ -46,6 +46,7 @@ public class UpdateUserInfo {
 		return VIEW_NAME;
 	}
 
+
 	@RequestMapping("/updateLastname")
 	public String updateLastname(HttpServletRequest req, Model model) {
 		// Get current user
@@ -64,6 +65,7 @@ public class UpdateUserInfo {
 		}
 		return VIEW_NAME;
 	}
+
 
 	@RequestMapping("/updateEmail")
 	public String updateEmail(HttpServletRequest req, Model model) {
@@ -84,6 +86,7 @@ public class UpdateUserInfo {
 		}
 		return VIEW_NAME;
 	}
+
 
 	@RequestMapping("/updatePassword")
 	public String updatePassword(HttpServletRequest req, Model model) {
