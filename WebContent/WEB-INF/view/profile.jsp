@@ -16,7 +16,7 @@
 </head>
 <body>
 	<c:url value="/resources/img/atomlogobar.png" var="logoInBar" />
-	<c:url value="/resources/img/medium-profile-pic.png" var="tempPP" />
+	<c:url value="/resources/img/small-profile-pic.png" var="tempPP" />
 	<%
 		User user = (User) session.getAttribute("user");
 	%>
@@ -41,8 +41,8 @@
 	
 	<div class="container">
 		<figure class="text-center">
-			<img class="fluid" src="${tempPP}">
-			<a href="">Change Profile Picture</a>			
+			<img id="profile-pic" class="img-fluid" src="${tempPP}">
+			<a  href="">Change Profile Picture</a>			
 		</figure>
 		
 		<div class="form-group">

@@ -24,4 +24,9 @@ public class RedirectController {
 	public String toAccount() {
 		return "account";
 	}
+	
+	@RequestMapping("/profile")
+	public String toProfile() {
+		return "profile";
+	}
 }
