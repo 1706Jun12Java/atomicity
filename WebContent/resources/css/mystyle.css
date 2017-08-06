@@ -6,7 +6,7 @@ body {
 
 
 
-.category-header {
+.category-header, .post-header {
 	width: 100%;
 	background-color: rgba(96,125,139, .7);
 	color:white;
@@ -124,5 +124,22 @@ body {
 .containerx .info span .fa {
   color: #EF3B3A;
 }
-/* **************************************************************** /
+/* *************************************************************** */
 
+.table-header {
+	width: 100%;
+	background-color: red;
+}
+
+.row-topic, .row-post {
+	border: 2px solid;
+}
+
+.row-topic-content, .row-post-content {
+	padding-left: 40px;
+	border-left: 1px solid;
+}
+
+.row-topic-title, .row-post-title {
+	width: 200px;
+}

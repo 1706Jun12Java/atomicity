@@ -139,7 +139,7 @@ public class RegisterController {
 	public String goToLoginPage() {
 		Debug.printMessage(this.getClass(), "goToLoginPage()", "Invoked");
 		Debug.printMessage(this.getClass(), "goToLoginPage()", "ENDED");
-		return "index";
+		return "/Atomicity/";
 		
 	}
 	

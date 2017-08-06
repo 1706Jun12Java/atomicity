@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="resources/css/mystyle.css" />
 </head>
 <body>
-	<div class"bgAtom">
+	<!-- <div class"bgAtom"> -->
 	<header>
 		<!-- NAVIGATION BAR -->
 		<nav class="navbar bg-inverse navbar-inverse navbar-toggleable-sm">

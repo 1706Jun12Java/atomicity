@@ -21,16 +21,16 @@
 	<%
 		User user = (User) session.getAttribute("user");
 	%>
-	<header> <!-- NAVIGATION BAR --> <nav
-		class="navbar bg-inverse navbar-inverse navbar-toggleable-sm">
+	<header> <!-- NAVIGATION BAR --> 
+		<nav class="navbar bg-inverse navbar-inverse navbar-toggleable-sm">
 	<div class="container">
 		<a class="navbar-brand" href="/Atomicity/"> <img id="logoImg"
 			src="resources/img/atomlogobar.png" alt="atomicity logo"
-			style="width: 80px;"> <%=user.getUsername()%>
+			style="width: 80px;"/> <%=user.getUsername()%>
 		</a>
 		<div class="navbar-nav">
 			<a class="nav-item nav-link active" href="/Atomicity/">Community</a>
-			<a class="nav-item nav-link" href="">Profile</a> <a
+			<a class="nav-item nav-link" href="/Atomicity/profile">Profile</a> <a
 				class="nav-item nav-link" href="/Atomicity/addTopicPage">Submit
 				a Topic</a> <a class="nav-item nav-link" href="/Atomicity/mailbox">Mailbox</a>
 			<a class="nav-item nav-link" href="/Atomicity/update">Update Info</a>
